@@ -1,0 +1,1086 @@
+- id: '1611862101533'
+  alias: 'Alarm: Armed'
+  description: ''
+  trigger:
+  - type: opened
+    platform: device
+    device_id: ddff02e9d7ac149065cb688330e0bdfb
+    entity_id: binary_sensor.contact_sensor_voordeur
+    domain: binary_sensor
+  - type: opened
+    platform: device
+    device_id: bfd1ebc1fbab599332cc1d6fb8631fc9
+    entity_id: binary_sensor.contact_sensor_achterdeur
+    domain: binary_sensor
+  condition:
+  - condition: state
+    entity_id: alarm_control_panel.ha_alarm
+    state: armed_away
+  action:
+  - service: notify.pushoverleon
+    data:
+      message: INTRUDER ALERT! Motion detected at home!
+      data:
+        push:
+          category: map
+        action_data:
+          latitude: '52.211157'
+          longitude: '5.9699231'
+  - service: notify.mobile_app_iphone_van_ellen
+    data:
+      message: INTRUDER ALERT! Motion detected at home!
+  - service: media_player.volume_set
+    data:
+      volume_level: 1
+    entity_id: media_player.media_player_all_speakers
+  - service: tts.google_translate_say
+    data:
+      entity_id: media_player.media_player_all_speakers
+      message: Intruder detected! We just have called the police
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 10
+      milliseconds: 0
+  - service: media_player.play_media
+    data:
+      media_content_id: https://s0nfyyav1weed97kkf4ds382ebxbhn43.ui.nabu.casa/local/alarm1.mp3
+      media_content_type: music
+    entity_id: media_player.media_player_all_speakers
+  - service: script.1611862460702
+    data: {}
+  mode: single
+- id: '1611863073382'
+  alias: 'Alarm: Disarmed'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.ha_alarm
+    from: armed_away
+    to: disarmed
+  condition: []
+  action:
+  - service: scene.turn_on
+    data: {}
+    entity_id: scene.alarm_lights_off
+  mode: single
+- id: '1611865198565'
+  alias: Home then disarmed
+  description: ''
+  trigger: []
+  condition:
+  - condition: or
+    conditions:
+    - condition: device
+      device_id: bca9f06547d92f22edd3594ca2b8a650
+      domain: device_tracker
+      entity_id: device_tracker.iphone_van_ellen
+      type: is_home
+    - condition: device
+      device_id: a4e0862b00b736a24ce5fa047b1fbb78
+      domain: device_tracker
+      entity_id: device_tracker.iphone_12_pro_van_leon
+      type: is_home
+  action:
+  - service: alarm_control_panel.alarm_disarm
+    data: {}
+    entity_id: alarm_control_panel.ha_alarm
+  mode: single
+- id: '1611934930466'
+  alias: Notify hous armed
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.ha_alarm
+    from: disarmed
+    to: armed
+  condition: []
+  action:
+  - service: notify.all_iphones
+    data:
+      message: 🚔👮‍♀️ Het alarm staat er op!
+  mode: single
+- id: '1612466740084'
+  alias: Nachtlampen aan
+  description: ''
+  trigger:
+  - platform: time
+    at: '19:00:00'
+  condition:
+  - condition: zone
+    entity_id: person.leon
+    zone: zone.home
+  - condition: or
+    conditions:
+    - condition: zone
+      entity_id: person.ellen
+      zone: zone.home
+  action:
+  - scene: scene.nachtlampen_aan
+  mode: single
+- id: '1612467460861'
+  alias: Goedemorgen
+  description: ''
+  trigger:
+  - platform: time
+    at: 08:00:00
+  condition:
+  - condition: state
+    entity_id: binary_sensor.workday
+    state: 'off'
+  action:
+  - scene: scene.goedemorgen
+  mode: single
+- id: '1612467954517'
+  alias: Léon away then armed
+  description: ''
+  trigger:
+  - platform: zone
+    entity_id: device_tracker.life360_leon
+    zone: zone.home
+    event: leave
+  condition:
+  - condition: device
+    device_id: bca9f06547d92f22edd3594ca2b8a650
+    domain: device_tracker
+    entity_id: device_tracker.iphone_van_ellen
+    type: is_not_home
+  action:
+  - service: alarm_control_panel.alarm_arm_away
+    data: {}
+    entity_id: alarm_control_panel.ha_alarm
+  mode: single
+- id: '1612468096261'
+  alias: Léon home then disarmed
+  description: ''
+  trigger:
+  - platform: zone
+    entity_id: device_tracker.life360_leon
+    zone: zone.home
+    event: enter
+  condition:
+  - condition: device
+    device_id: bca9f06547d92f22edd3594ca2b8a650
+    domain: device_tracker
+    entity_id: device_tracker.iphone_van_ellen
+    type: is_not_home
+  action:
+  - service: alarm_control_panel.alarm_disarm
+    data: {}
+    entity_id: alarm_control_panel.ha_alarm
+  mode: single
+- id: '1612468131011'
+  alias: Ellen home then disarmed
+  description: ''
+  trigger:
+  - platform: zone
+    entity_id: device_tracker.life360_ellen_van_der_linden
+    zone: zone.home
+    event: enter
+  condition:
+  - condition: device
+    device_id: a4e0862b00b736a24ce5fa047b1fbb78
+    domain: device_tracker
+    entity_id: device_tracker.iphone_12_pro_van_leon
+    type: is_not_home
+  action:
+  - service: alarm_control_panel.alarm_disarm
+    data: {}
+    entity_id: alarm_control_panel.ha_alarm
+  mode: single
+- id: '1612468864588'
+  alias: Opstaan
+  description: ''
+  trigger:
+  - platform: time
+    at: 07:20:00
+  condition:
+  - condition: zone
+    entity_id: person.leon
+    zone: zone.home
+  - condition: zone
+    entity_id: person.ellen
+    zone: zone.home
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: binary_sensor.workday
+      state: 'on'
+  action:
+  - scene: scene.opstaan
+  - scene: scene.goedemorgen
+  mode: single
+- id: '1612469082101'
+  alias: Opstaan uit
+  description: ''
+  trigger:
+  - platform: time
+    at: 07:50:00
+  condition:
+  - condition: state
+    entity_id: binary_sensor.workday
+    state: 'on'
+  action:
+  - scene: scene.opstaan_uit
+  mode: single
+- id: '1612718765332'
+  alias: 'co2 zolder '
+  description: ''
+  trigger:
+  - type: value
+    platform: device
+    device_id: a5cfe72f8ab33a069aae8efa65362616
+    entity_id: sensor.netatmo_netatmo_huis_netatmo_woonkamer_netatmo_zolder_co2
+    domain: sensor
+    above: 1000
+  condition:
+  - condition: time
+    after: 08:00
+    before: '23:00'
+  action:
+  - service: notify.all_devices
+    data:
+      message: 🌬 co2 zolder te hoog
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.65
+    target:
+      entity_id: media_player.google_home_hub
+  - service: tts.google_translate_say
+    data:
+      entity_id: media_player.google_home_hub
+      message: c o 2 zolder te hoog
+  mode: single
+- id: '1612718836529'
+  alias: co2 Master Bedroom
+  description: ''
+  trigger:
+  - type: value
+    platform: device
+    device_id: c75f64ef0b85b3f2bbcf1c237f88e7b0
+    entity_id: sensor.netatmo_netatmo_huis_netatmo_woonkamer_netatmo_master_bedroom_co2
+    domain: sensor
+    above: 1000
+  condition:
+  - condition: time
+    after: 08:00
+    before: '23:00'
+  action:
+  - service: notify.tv_woonkamer
+    data:
+      message: co2 Master Bedroom te hoog
+  - service: notify.all_devices
+    data:
+      message: 🌬 co2 Master bedroom te hoog
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.65
+    target:
+      entity_id: media_player.google_home_hub
+  - service: tts.google_translate_say
+    data:
+      entity_id: media_player.google_home_hub
+      message: c o 2 master bedroom te hoog
+  mode: single
+- id: '1612735325252'
+  alias: co2 Woonkamer
+  description: ''
+  trigger:
+  - type: value
+    platform: device
+    device_id: 0cd15f11206c644513f528d95895c421
+    entity_id: sensor.netatmo_netatmo_huis_netatmo_woonkamer_co2
+    domain: sensor
+    above: 1000
+  condition:
+  - condition: time
+    after: 08:00
+    before: '23:00'
+  action:
+  - service: notify.all_devices
+    data:
+      message: 🌬 co2 woonkamer te hoog
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.65
+    target:
+      entity_id:
+      - media_player.google_home_hub
+  - service: tts.google_translate_say
+    data:
+      entity_id: media_player.google_home_hub
+      message: c o 2 woonkamer te hoog
+  mode: single
+- id: '1612800534910'
+  alias: zon onder, lampen aan
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+  condition:
+  - condition: zone
+    entity_id: person.leon
+    zone: zone.home
+  - condition: or
+    conditions:
+    - condition: zone
+      entity_id: person.ellen
+      zone: zone.home
+  action:
+  - scene: scene.avond_1
+  - service: notify.tv_woonkamer
+    data:
+      message: De zon gaat onder, lampen zijn ingeschakeld.
+  - device_id: fbb44a22d77a20ef14915087e1353e56
+    domain: huesyncbox
+    entity_id: media_player.sync_box
+    type: sync_on
+  mode: single
+- id: '1612803756601'
+  alias: bedtijd Nyk en Fay
+  description: ''
+  trigger:
+  - platform: time
+    at: '18:30:00'
+  condition:
+  - condition: zone
+    entity_id: person.leon
+    zone: zone.home
+  - condition: or
+    conditions:
+    - condition: zone
+      entity_id: person.ellen
+      zone: zone.home
+  action:
+  - service: notify.tv_woonkamer
+    data:
+      message: Bedtijd Fay & Nyk
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.7
+    target:
+      entity_id: media_player.google_home_hub
+  - service: tts.google_translate_say
+    data:
+      entity_id: media_player.google_home_hub
+      message: Het is bedtijd voor Fee en Niek. Kom gaan we douchen en lekker slapen
+  mode: single
+- id: '1612808149316'
+  alias: Ambilight Switch
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: media_player.sync_box
+    to: Nintendo Switch
+    attribute: mode
+  condition: []
+  action:
+  - service: notify.tv_woonkamer
+    data:
+      message: Ambilight synchronisatie aan
+  - device_id: fbb44a22d77a20ef14915087e1353e56
+    domain: huesyncbox
+    entity_id: media_player.sync_box
+    type: sync_video_on
+  mode: single
+- id: '1612810081091'
+  alias: Ambilight Apple TV
+  description: ''
+  trigger:
+  - platform: time
+    at: '21:00:00'
+  condition:
+  - condition: device
+    device_id: fbb44a22d77a20ef14915087e1353e56
+    domain: media_player
+    entity_id: media_player.sync_box
+    type: is_on
+  action:
+  - device_id: fbb44a22d77a20ef14915087e1353e56
+    domain: huesyncbox
+    entity_id: media_player.sync_box
+    type: sync_video_toggle
+  - service: notify.tv_woonkamer
+    data:
+      message: Ambilight synchronisatie aan
+      title: HomevdLinden
+  mode: single
+- id: '1613922478394'
+  alias: UniFi Controller is offline
+  description: ''
+  trigger:
+  - platform: state
+    from: aan
+    to: uit
+    entity_id: binary_sensor.unifi_controller
+  condition: []
+  action:
+  - data:
+      message: UniFi Controller is offline
+    service: notify.pushoverleon
+  - service: notify.tv_woonkamer
+    data:
+      message: UniFi Controller is offline
+  mode: single
+- id: '1614516957159'
+  alias: Climate Control uit
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.woonkamer_temperature
+    above: '20'
+  condition:
+  - condition: time
+    after: 08:01
+    before: '22:29'
+  - condition: and
+    conditions:
+    - condition: zone
+      entity_id: person.leon
+      zone: zone.home
+    - condition: or
+      conditions:
+      - condition: zone
+        entity_id: person.ellen
+        zone: zone.home
+  action:
+  - service: climate.turn_off
+    data: {}
+    entity_id: climate.woonkamer
+  - service: notify.all_devices_leon_iphone_ellen
+    data:
+      message: Het is 20 graden binnen, de verwarming gaat uit! 🌡️ 🥵
+  mode: single
+- id: '1614602202747'
+  alias: Butten mb lamp aan
+  description: ''
+  trigger:
+  - platform: device
+    device_id: 78c96800cba49c978c9ff1d2b8e59cab
+    domain: homekit_controller
+    type: button1
+    subtype: single_press
+  condition: []
+  action:
+  - type: turn_on
+    device_id: 319d8b8b2c5806259944d4f07d6fc6f4
+    entity_id: light.bed_rechts
+    domain: light
+    brightness_pct: 50
+  mode: single
+- id: '1614602229507'
+  alias: Butten mb lamp uit
+  description: ''
+  trigger:
+  - platform: device
+    device_id: 78c96800cba49c978c9ff1d2b8e59cab
+    domain: homekit_controller
+    type: button1
+    subtype: double_press
+  condition: []
+  action:
+  - type: turn_off
+    device_id: 319d8b8b2c5806259944d4f07d6fc6f4
+    entity_id: light.bed_rechts
+    domain: light
+  mode: single
+- id: '1614607279068'
+  alias: Climate Control uit (nacht)
+  description: ''
+  trigger:
+  - platform: time
+    at: '23:45:00'
+  condition: []
+  action:
+  - service: climate.turn_off
+    data: {}
+    entity_id: climate.woonkamer
+  mode: single
+- id: '1614786742070'
+  alias: Climate Control aan
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.woonkamer_temperature
+    below: '19'
+  condition:
+  - condition: time
+    after: 06:01
+    before: '22:29'
+  - condition: and
+    conditions:
+    - condition: zone
+      entity_id: person.leon
+      zone: zone.home
+    - condition: or
+      conditions:
+      - condition: zone
+        entity_id: person.ellen
+        zone: zone.home
+  action:
+  - service: climate.set_temperature
+    data:
+      temperature: 20
+      hvac_mode: heat
+    entity_id: climate.woonkamer
+  - service: notify.all_devices_leon_iphone_ellen
+    data:
+      message: Het is 19 graden binnen, de verwarming gaat weer aan! 🌡️🥶
+  mode: single
+- id: '1615837550456'
+  alias: F1 race
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: calendar.f1_race
+    to: 'on'
+  condition: []
+  action:
+  - service: notify.pushoverleon
+    data:
+      message: F1 begint
+  mode: single
+- id: '1615926509027'
+  alias: HA opgestart
+  description: ''
+  trigger:
+  - platform: homeassistant
+    event: start
+  condition: []
+  action:
+  - service: notify.all_devices_leon
+    data:
+      message: Home Assistant is weer opgestart  🎉
+  mode: single
+- id: '1615926588555'
+  alias: HA offline
+  description: ''
+  trigger:
+  - platform: homeassistant
+    event: shutdown
+  condition: []
+  action:
+  - service: notify.all_devices_leon
+    data:
+      message: Home Assistant is shutting down... Bye!
+  mode: single
+- id: '1615929235983'
+  alias: Climate Control aan (ochtend)
+  description: ''
+  trigger:
+  - platform: time
+    at: 06:00:00
+  condition:
+  - condition: zone
+    entity_id: device_tracker.life360_leon
+    zone: zone.home
+  - condition: zone
+    entity_id: device_tracker.life360_ellen_van_der_linden
+    zone: zone.home
+  action:
+  - service: climate.set_temperature
+    data:
+      temperature: 20
+      hvac_mode: heat
+    entity_id: climate.woonkamer
+  - service: notify.all_devices_leon
+    data:
+      message: De verwarming start op! 🌡️🥶
+  mode: single
+- id: '1616336462101'
+  alias: Tuin verlichting aan
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+  condition: []
+  action:
+  - delay:
+      hours: 0
+      minutes: 40
+      seconds: 0
+      milliseconds: 0
+  - scene: scene.veranda_aan_2
+  - service: notify.tv_woonkamer
+    data:
+      message: Tuin verlichting is aangezet
+  mode: single
+- id: '1616528549020'
+  alias: 'Work: Léon left work notification for Ellen'
+  trigger:
+  - platform: state
+    entity_id: person.leon
+    from: Work
+  condition:
+  - condition: time
+    after: '15:00:00'
+    before: '22:00:00'
+  action:
+  - service: notify.all_devices
+    data:
+      message: Léon heeft het werk verlaten! ♥️🎉
+  mode: single
+- id: '1616529108420'
+  alias: P2000 Bericht
+  trigger:
+  - platform: state
+    entity_id: sensor.p2000_apeldoorn_zuidbroek
+  action:
+  - service_template: notify.all_devices_leon
+    data_template:
+      title: 🚑 P2000 Apeldoorn Zuidbroek
+      message: '{{ states.sensor.p2000_apeldoorn_zuidbroek.state + states.sensor.p2000_apeldoorn_zuidbroek.attributes.capcodes
+        }}
+
+        '
+      data:
+        url: https://www.google.com/maps/search/?api=1&query={{ states.sensor.p2000_apeldoorn_zuidbroek.attributes.latitude
+          }},{{ states.sensor.p2000_apeldoorn_zuidbroek.attributes.longitude }}
+  mode: single
+- id: '1616530377313'
+  alias: Unifi Firmware upgrade
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.unifi_gateway_firmware_upgradable
+    above: '0'
+  condition: []
+  action:
+  - service: notify.all_devices_leon
+    data:
+      message: '🆕 UniFi gateway firmware update! '
+  mode: single
+- id: '1616530791817'
+  alias: Stroom verbruik per dag
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.energy_import_total_dagelijks_kwh
+    above: '15'
+  condition: []
+  action:
+  - service: notify.all_devices
+    data:
+      message: '⚡📈 PAS OP: Je hebt vandaag al meer dan 15 kWh aan stroom verbruikt!'
+      data:
+        url: https://s0nfyyav1weed97kkf4ds382ebxbhn43.ui.nabu.casa/dwains-dashboard/more_page_addon_energy
+  mode: single
+- id: '1616539777146'
+  alias: Unifi Gateway alerts
+  description: ''
+  trigger:
+  - platform: numeric_state
+    above: '0'
+    entity_id: sensor.unifi_gateway_alerts
+  condition: []
+  action:
+  - service: notify.all_devices_leon
+    data:
+      message: '🆕 UniFi gateway alerts! '
+      data:
+        url: https://s0nfyyav1weed97kkf4ds382ebxbhn43.ui.nabu.casa/dwains-dashboard/more_page_addon_ubiquiti_unifi
+  mode: single
+- id: '1616571308242'
+  alias: Voordeur open
+  description: ''
+  trigger:
+  - type: opened
+    platform: device
+    device_id: ddff02e9d7ac149065cb688330e0bdfb
+    entity_id: binary_sensor.contact_sensor_voordeur
+    domain: binary_sensor
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 1
+      milliseconds: 0
+  condition: []
+  action:
+  - service: notify.all_devices_leon
+    data:
+      message: 🚪De voordeur is open!
+      data:
+        attachment:
+          content-type: jpeg
+        push:
+          category: camera
+        entity_id: camera.voordeur
+  mode: single
+- id: '1616846934933'
+  alias: 'Achterdeur open '
+  description: ''
+  trigger:
+  - type: opened
+    platform: device
+    device_id: bfd1ebc1fbab599332cc1d6fb8631fc9
+    entity_id: binary_sensor.contact_sensor_achterdeur
+    domain: binary_sensor
+    for:
+      hours: 0
+      minutes: 2
+      seconds: 0
+      milliseconds: 0
+  condition: []
+  action:
+  - service: notify.all_devices_leon
+    data:
+      message: 🚪De achterdeur is open!
+      data:
+        attachment:
+          content-type: jpeg
+        push:
+          category: camera
+        entity_id: camera.achterdeur
+  mode: single
+- id: '1617616486632'
+  alias: KNMI code geel
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.knmi_weercode
+    to: Code geel
+  condition: []
+  action:
+  - service: notify.all_devices
+    data:
+      message: '{{(states(''sensor.knmi_weer_waarschuwing'') )}}'
+      title: ❗💨 KNMI code geel
+      data:
+        url: https://www.knmi.nl/nederland-nu/weer/waarschuwingen/gelderland
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.65
+    target:
+      entity_id:
+      - media_player.google_home_hub
+  - service: tts.google_translate_say
+    data:
+      entity_id: media_player.google_home_hub
+      message: K N M I heeft code geel afgegeven {{(states('sensor.knmi_weer_waarschuwing')
+        )}}
+  mode: single
+- id: '1617616574742'
+  alias: KNMI code oranje
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.knmi_weercode
+    to: Code oranje
+  condition: []
+  action:
+  - service: notify.all_devices
+    data:
+      message: '{{(states(''sensor.knmi_weer_waarschuwing'') )}}'
+      title: ❗💨 KNMI code oranje
+      data:
+        url: https://www.knmi.nl/nederland-nu/weer/waarschuwingen/gelderland
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.65
+    target:
+      entity_id:
+      - media_player.google_home_hub
+  - service: tts.google_translate_say
+    data:
+      entity_id: media_player.google_home_hub
+      message: K N M I heeft code oranje afgegeven
+  mode: single
+- id: '1617616617610'
+  alias: KNMI code rood
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.knmi_weercode
+    to: Code rood
+  condition: []
+  action:
+  - service: notify.all_devices
+    data:
+      message: '{{(states(''sensor.knmi_weer_waarschuwing'') )}}'
+      title: ❗💨 KNMI code rood
+      data:
+        url: https://www.knmi.nl/nederland-nu/weer/waarschuwingen/gelderland
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.65
+    target:
+      entity_id:
+      - media_player.google_home_hub
+  - service: tts.google_translate_say
+    data:
+      entity_id: media_player.google_home_hub
+      message: K N M I heeft code rood afgegeven {{(states('sensor.knmi_weer_waarschuwing')
+        )}}
+  mode: single
+- id: '1617616708911'
+  alias: KNMI code groen
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.knmi_weercode
+    to: Code groen
+  condition: []
+  action:
+  - service: notify.all_devices
+    data:
+      message: '{{(states(''sensor.knmi_weer_waarschuwing'') )}}'
+      data:
+        url: https://www.knmi.nl/nederland-nu/weer/waarschuwingen/gelderland
+      title: ❗💨 KNMI code is weer normaal
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.65
+    target:
+      entity_id:
+      - media_player.google_home_hub
+  - service: tts.google_translate_say
+    data:
+      entity_id: media_player.google_home_hub
+      message: K N M I heeft code is weer normaal {{(states('sensor.knmi_weer_waarschuwing')
+        )}}
+  mode: single
+- id: '1617635237628'
+  alias: knmi test
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.knmi_weercode
+    to: Code geel
+  condition: []
+  action:
+  - service: notify.all_devices
+    data:
+      message:
+        '[object Object]':
+      title: ❗💨 KNMI code oranje
+      data:
+        url: https://www.knmi.nl/nederland-nu/weer/waarschuwingen/gelderland
+  mode: single
+- id: '1617698228885'
+  alias: Kantoor aan
+  description: ''
+  trigger:
+  - platform: time
+    at: 08:30
+  condition:
+  - condition: state
+    entity_id: binary_sensor.workday
+    state: 'on'
+  action:
+  - type: turn_on
+    device_id: 6549113e76c8912b251fdfba9b9da98b
+    entity_id: switch.kantoor
+    domain: switch
+  mode: single
+- id: '1617698254798'
+  alias: Kantoor uit
+  description: ''
+  trigger:
+  - platform: time
+    at: '16:30'
+  condition:
+  - condition: state
+    entity_id: binary_sensor.workday
+    state: 'on'
+  action:
+  - type: turn_off
+    device_id: 6549113e76c8912b251fdfba9b9da98b
+    entity_id: switch.kantoor
+    domain: switch
+  mode: single
+- id: '1617722176116'
+  alias: Verjaardagen
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: calendar.friends_birthdays
+    attribute: message
+  condition:
+  - condition: time
+    after: '10:00:00'
+  action:
+  - service: notify.pushoverleon
+    data:
+      message: Hiep hiep hoera vaandaag is {{(states('calendar.friends_birthdays')
+        )}}
+      title: 🎈🎂 Verjaardag
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.06
+    target:
+      entity_id: media_player.google_home
+  - service: tts.google_translate_say
+    data:
+      entity_id: media_player.google_home
+      message: Hiep hiep hoera vaandaag is {{(states('calendar.friends_birthdays')
+        )}}
+  mode: single
+- id: '1618004217172'
+  alias: Low battery level detection & notification for all battery sensors
+  description: ''
+  use_blueprint:
+    path: sbyx/low-battery-level-detection-notification-for-all-battery-sensors.yaml
+    input:
+      time: '10:00:00'
+      actions:
+      - service: notify.all_devices_leon
+        data:
+          message: Let op. een batterij van een sensor is bijna leeg
+- id: '1618035760581'
+  alias: Beweging zolder
+  description: ''
+  trigger:
+  - type: motion
+    platform: device
+    device_id: 53554998ef7bf6c0b06344674b094921
+    entity_id: binary_sensor.logi_circle_zolder
+    domain: binary_sensor
+  condition: []
+  action:
+  - service: notify.all_devices_leon
+    data:
+      message: 📸 Er is beweging op zolder!
+      data:
+        attachment:
+          content-type: jpeg
+        push:
+          category: camera
+        entity_id: camera.logi_circle_zolder
+        data:
+          url: https://circle.logi.com/#/accessories/d0a76af5-4667-4de2-b704-b4280237a6e6
+  - service: notify.pushoverleon
+    data:
+      message: 📸 Er is beweging op zolder!
+      data:
+        attachment:
+          content-type: jpeg
+        push:
+          category: camera
+        entity_id: camera.logi_circle_zolder
+        data:
+          url: https://circle.logi.com/#/accessories/d0a76af5-4667-4de2-b704-b4280237a6e6
+  mode: single
+- id: '1618043970006'
+  alias: Beweging slaapkamer Kai
+  description: ''
+  trigger:
+  - type: motion
+    platform: device
+    device_id: 28bc456938f109e8739d888a9a90adc4
+    entity_id: binary_sensor.logi_circle_kai
+    domain: binary_sensor
+  condition:
+  - condition: time
+    after: '20:00:00'
+    before: '23:59:00'
+  action:
+  - service: notify.all_devices
+    data:
+      message: 📸 Er is beweging op de slaapkamer van Kai
+      data:
+        attachment:
+          content-type: jpeg
+        push:
+          category: camera
+        entity_id: camera.logi_circle_kai
+        data:
+          url: https://circle.logi.com/#/accessories/8ac4a7b9-bff7-4bc9-b7ac-d4351aee1f5f
+  - service: notify.pushoverleon
+    data:
+      message: 📸 Er is beweging op zolder!
+      data:
+        attachment:
+          content-type: jpeg
+        push:
+          category: camera
+        entity_id: camera.logi_circle_kai
+  mode: single
+- id: '1618044022398'
+  alias: Beweging slaapkamer Fay
+  description: ''
+  trigger:
+  - type: motion
+    platform: device
+    device_id: f864cf6f8b6af0861edb1d913fa8ef4c
+    entity_id: binary_sensor.logi_circle_fay
+    domain: binary_sensor
+  condition:
+  - condition: time
+    after: '19:30:00'
+    before: '23:59:00'
+  action:
+  - service: notify.all_devices
+    data:
+      message: 📸 Er is beweging op de slaapkamer van Fay
+      data:
+        attachment:
+          content-type: jpeg
+        push:
+          category: camera
+        entity_id: camera.logi_circle_fay
+        data:
+          url: https://circle.logi.com/#/accessories/8210bcaf-7de5-4dd1-8171-c4e5d5696c4a
+  - service: notify.pushoverleon
+    data:
+      message: 📸 Er is beweging op zolder!
+      data:
+        attachment:
+          content-type: jpeg
+        push:
+          category: camera
+        entity_id: camera.logi_circle_fay
+  mode: single
+- id: '1618044050679'
+  alias: Beweging slaapkamer Nyk
+  description: ''
+  trigger:
+  - type: motion
+    platform: device
+    device_id: 26171b191be29ac03a1035bc43d7898e
+    entity_id: binary_sensor.logi_circle_nyk
+    domain: binary_sensor
+  condition:
+  - condition: time
+    after: '19:30:00'
+    before: '23:59:00'
+  action:
+  - service: notify.all_devices
+    data:
+      message: 📸 Er is beweging op de slaapkamer van Nyk
+      data:
+        attachment:
+          content-type: jpeg
+        push:
+          category: camera
+        entity_id: camera.logi_circle_nyk
+        data:
+          url: https://circle.logi.com/#/accessories/d70fd91b-33ed-4dc9-9b11-eae003e34190
+  - service: notify.pushoverleon
+    data:
+      message: 📸 Er is beweging op zolder!
+      data:
+        attachment:
+          content-type: jpeg
+        push:
+          category: camera
+        entity_id: camera.logi_circle_nyk
+  mode: single
+- id: '1618640271777'
+  alias: Alles uit
+  description: Lampen uit in de ochtend
+  trigger:
+  - platform: time
+    at: 08:15:00
+  condition: []
+  action:
+  - scene: scene.alles_uit
+  mode: single
+- id: '1619094764023'
+  alias: Cast to Google Hub
+  description: ''
+  use_blueprint:
+    path: kind3r/cast-and-re-cast-a-lovelace-view-to-a-google-hub.yaml
+    input:
+      dashboard: https://s0nfyyav1weed97kkf4ds382ebxbhn43.ui.nabu.casa/dwains-dashboard
+      player: media_player.google_home_hub
+      view: https://s0nfyyav1weed97kkf4ds382ebxbhn43.ui.nabu.casa/dwains-dashboard/more_page_addon_climate_dashboard
