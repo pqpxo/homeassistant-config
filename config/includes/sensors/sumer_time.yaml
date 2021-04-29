@@ -1,0 +1,12 @@
+  - platform: template
+    sensors:
+  # DST indicator
+      time_daylight_saving:
+        friendly_name: 'Daylight Saving Time'
+        icon_template: mdi:numeric-positive-1
+        value_template: >
+          {% if now().timetuple().tm_isdst == 1 %}
+            on
+          {% else %}
+            off
+          {% endif %}

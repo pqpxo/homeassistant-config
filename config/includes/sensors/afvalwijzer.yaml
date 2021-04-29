@@ -1,0 +1,17 @@
+  - platform: afvalbeheer
+    wastecollector: circulus-berkel
+    resources:                       
+      - gft
+      - papier
+      - pmd
+    postcode: !secret    
+    streetnumber: !secret               
+    upcomingsensor: 1               
+    dateformat: '%d-%m-%Y'          
+    dateonly: 0                     
+    dateobject: 0                  
+    name: ''                         
+    nameprefix: 1                   
+    builtinicons: 1                 
+    disableicons: 0                 
+    dutch: 1  

@@ -1,0 +1,66 @@
+#-
+#              _   _  __
+#  _ __   ___ | |_(_)/ _|_   _
+# | '_ \ / _ \| __| | |_| | | |
+# | | | | (_) | |_| |  _| |_| |
+# |_| |_|\___/ \__|_|_|  \__, |
+#                        |___/
+#
+#- from github.com/basnijholt/home-assistant-config
+
+
+    
+- platform: ios
+  name: iosApp
+  target: '!secret'
+
+
+- platform: pushover
+  name: Pushoverleon
+  api_key: !secret
+  user_key: !secret  
+    
+- platform: group
+  name: all_iphones
+  services:
+      - service: pushoverleon
+      - service: mobile_app_iphone_van_ellen
+      - service: mobile_app_iphone_12_pro_van_leon 
+      
+      
+
+- platform: group
+  name: all_devices_leon
+  services:
+      - service: pushoverleon
+      - service: mobile_app_iphone_12_pro_van_leon
+      - service: mobile_app_ipad_pro_129_van_leon
+      - service: mobile_app_macbook_pro
+      
+
+
+- platform: group
+  name: all_devices_leon_+_iphone_ellen
+  services:
+      - service: pushoverleon
+      - service: mobile_app_iphone_12_pro_van_leon
+      - service: mobile_app_ipad_pro_129_van_leon
+      - service: mobile_app_macbook_pro
+      - service: mobile_app_iphone_van_ellen      
+      
+      
+
+- platform: group
+  name: all_devices
+  services:
+      - service: pushoverleon
+      - service: mobile_app_iphone_12_pro_van_leon
+      - service: mobile_app_ipad_pro_129_van_leon
+      - service: mobile_app_macbook_pro
+      - service: mobile_app_iphone_van_ellen
+      - service: mobile_app_ipad_van_ellen_2
+      - service: tv_woonkamer
+      
+      
+      
+

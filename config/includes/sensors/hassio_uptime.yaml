@@ -1,0 +1,3 @@
+  - platform: uptime
+    name: Hassio Uptime
+    unit_of_measurement: minutes

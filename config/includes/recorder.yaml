@@ -1,0 +1,32 @@
+db_url: !secret mariadb_url
+commit_interval: 30
+include:
+  domains:
+      - automation
+      - updater
+      - sensor
+      - media_player
+      - scene
+  entities:
+      - device_tracker.life360_leon
+      - device_tracker.life360_ellen_van_der_linden
+      - device_tracker.life360_eliza_van_der_linden
+      - device_tracker.iphone_van_eliza
+      - device_tracker.life360_kai_van_der_linden
+      - device_tracker.life360_fay_van_der_linden
+      - device_tracker.life360_nyk_van_der_linden
+      - sensor.netatmo_netatmo_huis_netatmo_woonkamer_netatmo_tuin_temperature
+      - sensor.apeldoorn_ground_temperature
+      - sensor.apeldoorn_feel_temperature
+      - sensor.badkamer_sensor_temperature
+      - sensor.entree_sensor_temperature
+      - sensor.netatmo_netatmo_huis_netatmo_woonkamer_netatmo_master_bedroom_temperature
+      - sensor.zolder_sensor_temperature
+      - sensor.wc_sensor_temperature
+      - sensor.netatmo_netatmo_huis_netatmo_woonkamer_netatmo_zolder_temperature
+      - sensor.woonkamer_temperature
+      - sensor.netatmo_netatmo_huis_netatmo_woonkamer_temperature
+      - weather.thuis
+      - sensor.apeldoorn_rain_last_24h
+      - sensor.apeldoorn_rain_last_hour
+      

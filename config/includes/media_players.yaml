@@ -1,0 +1,10 @@
+########################################################################
+### MEDIA PLAYER
+########################################################################
+  - platform: universal
+    name: media_player_all_speakers
+    children:
+      - media_player.google_home
+      - media_player.google_home_hub
+      - media_player.home_mini_master_bedroom
+      - media_player.sonos

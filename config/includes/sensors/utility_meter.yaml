@@ -1,0 +1,63 @@
+  energy_import_t2_dagelijks:
+    source: sensor.p1_meter_total_power_import_t2
+    cycle: daily
+
+  energy_import_t1_dagelijks:
+    source: sensor.p1_meter_total_power_import_t1
+    cycle: daily
+    
+  energy_import_t2_wekelijks:
+    source: sensor.p1_meter_total_power_import_t2
+    cycle: weekly
+
+  energy_import_t1_wekelijks:
+    source: sensor.p1_meter_total_power_import_t1
+    cycle: weekly   
+
+  energy_import_t2_maandelijks:
+    source: sensor.p1_meter_total_power_import_t2
+    cycle: monthly
+
+  energy_import_t1_maandelijks:
+    source: sensor.p1_meter_total_power_import_t1
+    cycle: monthly   
+
+
+#  energy_export_t2_dagelijks:
+#    source: sensor.p1_meter_total_power_export_t2_kwh
+#    cycle: daily
+
+#  energy_export_t1_dagelijks:
+#    source: sensor.p1_meter_total_power_export_t1_kwh
+#    cycle: daily
+
+  energy_gas_dagelijks:
+    source: sensor.p1_meter_total_gas
+    cycle: daily
+    
+  energy_gas_wekelijks:
+    source: sensor.p1_meter_total_gas
+    cycle: weekly
+    
+  energy_gas_maandelijks:
+    source: sensor.p1_meter_total_gas
+    cycle: monthly
+    
+  kwartierpiek_t1:
+    source: sensor.p1_meter_total_power_import_t1
+    cycle: quarter-hourly
+  daily_energy_peak:
+    source: sensor.p1_meter_total_power_import_t1
+    cycle: daily
+  daily_injection_peak:
+    source: sensor.p1_meter_total_power_export_t1
+    cycle: daily
+  kwartierpiek_t2:
+    source: sensor.p1_meter_total_power_import_t2
+    cycle: quarter-hourly
+  daily_energy_offpeak:
+    source: sensor.p1_meter_total_power_import_t2
+    cycle: daily
+  daily_injection_offpeak:
+    source: sensor.p1_meter_total_power_export_t2
+    cycle: daily

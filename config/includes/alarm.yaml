@@ -1,0 +1,5 @@
+  - platform: manual
+    code: !secret alarm_code
+    delay_time: 30
+    arming_time: 30
+    trigger_time: 30

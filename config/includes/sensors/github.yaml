@@ -1,0 +1,54 @@
+  - platform: github
+    access_token: !secret
+    repositories:
+## Personal
+      - path: 'LRvdLinden/automations_dd_addon'
+        name: Automations Dashboard Dwains Add-on
+      - path: 'LRvdLinden/birthdays_dd_addon'
+        name: Birthday Dwains Add-on
+      - path: 'LRvdLinden/uptimerobot_dd_addon'
+        name: UptimeRobot Dwains Add-on
+      - path: 'LRvdLinden/UptimeRobot-HA-Card'
+        name: UptimeRobot Lovelace Card
+      - path: 'LRvdLinden/github_dd_addon'
+        name: Github Dwains Add-on
+      - path: 'LRvdLinden/weather_dd_addon'
+        name: Weather Dashboard Dwains Add-on
+      - path: 'LRvdLinden/dwains_dark_theme'
+        name: Dwains Dark Theme     
+      - path: 'LRvdLinden/dwains_light_theme'
+        name: Dwains Light Theme     
+      - path: 'LRvdLinden/climate_dashboard_dd_addon'
+        name: Climate Dashboard Dwains Add-on   
+      - path: 'LRvdLinden/security_dashboard_dd_addon'
+        name: Security Dashboard Dwains Add-on     
+      - path: 'LRvdLinden/house_consumption_dd_addon'
+        name: House consumption Dwains Add-on             
+      - path: 'LRvdLinden/homeassistant-config'
+        name: Home Assistant config             
+
+        
+## DWAINS DASHBOARD        
+      - path: 'dwainscheeren/dwains-lovelace-dashboard'
+        name: Dwains Dashboard
+      - path: 'dwainscheeren/dwains-dashboard-addons'
+        name: Dwains Dashboard addons       
+ 
+        
+        
+## HOME ASSISTANT        
+      - path: 'home-assistant/core'
+        name: Home Assistant Core
+      - path: 'home-assistant/supervisor'
+        name: Home Assistant Supervisor 
+      - path: 'home-assistant/home-assistant.io'
+        name: Home Assistant Website
+      - path: 'home-assistant/frontend'
+        name: Home Assistant Fronted
+      - path: 'home-assistant/operating-system'
+        name: Home Assistant OS
+        
+        
+        
+        
+ 

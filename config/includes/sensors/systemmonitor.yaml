@@ -1,0 +1,96 @@
+  - platform: systemmonitor
+    resources:
+          - type: disk_use_percent
+            arg: /home
+          - type: memory_use_percent
+          - type: memory_use
+          - type: swap_use
+          - type: swap_free
+          - type: swap_use_percent
+          - type: load_1m
+          - type: load_5m
+          - type: load_15m
+          - type: memory_free
+          - type: last_boot
+          - type: processor_use
+          - type: disk_use_percent
+            arg: /
+          - type: network_in
+            arg: eth0
+          - type: network_out
+            arg: eth0
+          - type: ipv4_address
+            arg: eth0
+          - type: throughput_network_in
+            arg: eth0
+          - type: throughput_network_out
+            arg: eth0
+          - type: processor_use
+ 
+        
+  # Home Assistant version available
+  # https://www.home-assistant.io/components/sensor.version/
+  - platform: version
+    name: version_available
+    # name: Latest Available Version
+    beta: false
+    source: hassio
+    image: qemux86-64
+  # Home Assistant version installed
+  - platform: version
+    name: version_current
+    # name: Installed Version
+    source: local
+
+  # Uptime sensor platform displays the time since the last Home Assistant restart
+  # https://www.home-assistant.io/integrations/uptime/
+  - platform: uptime
+  # Home Assistant log size
+  - platform: filesize
+    file_paths:
+      - /config/home-assistant.log
+  - platform: template
+    sensors:
+      # Home Assistant uptime
+      ha_uptime:
+        friendly_name: HA Uptime
+        value_template: >
+          {% set up_time =  as_timestamp(now()) - as_timestamp(states('sensor.uptime')) %}
+
+          {% set minutes = (up_time // 60) | int %}
+          {% set hours = (minutes // 60) %}
+          {% set days = (hours // 24) %}
+          {% set weeks = (days // 7) %}
+
+          {% set minutes = (minutes % 60) %}
+          {% set hours =  (hours % 24) %}
+          {% set days = (days % 7) %}
+
+          {% macro phrase(value, name) %}
+                    {%- set value = value %}
+                    {%- set end = 's' if value > 1 else '' %}
+                    {{- '{} {}{}'.format(value, name, end) if value | int > 0 else '' }}
+          {%- endmacro %}
+
+          {% set text = [ phrase(weeks, 'week'), phrase(days, 'day'), phrase(hours, 'hr'), phrase(minutes, 'min') ] | select('!=','') | list | join(', ') %}
+          {% set last_comma = text.rfind(',') %}
+          {% if last_comma != -1 %}
+            {% set text = text[:last_comma] + ' and' + text[last_comma + 1:] %}
+          {% endif %}
+
+          {{ text }}
+          
+  # Supervisor & add-ons available updates
+  - platform: command_line
+    name: Supervisor updates
+    command: 'curl http://supervisor/supervisor/info -H "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" | jq ''{"newest_version":.data.version_latest,"current_version":.data.version,"addons":[.data.addons[] | select(.version != .version_latest)]}'''
+    value_template: "{{ value_json.addons | length }}"
+    unit_of_measurement: "pending update(s)"
+    json_attributes:
+    - newest_version
+    - current_version
+    - addons
+
+
+
+

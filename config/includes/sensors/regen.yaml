@@ -1,0 +1,7 @@
+  - platform: command_line
+    command: python3 -c "import requests; import json; import random; dataRequest = requests.get('https://gpsgadget.buienradar.nl/data/raintext?lat=!secret&lon=!secretc='+str(random.randint(0,999999999999999)) ).text; dataRequest = dataRequest.replace('\r\n',' '); data = '{\"data\":\"'+dataRequest+'\"}';    print(data);"
+    name: Buienradar_Regen_Data
+    json_attributes:
+      - data
+    value_template: 'last_changed: {{states.sensor.buienradar_regen_data.last_changed}}'
+    scan_interval: 60

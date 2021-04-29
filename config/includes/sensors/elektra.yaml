@@ -1,0 +1,164 @@
+##############################################
+##                 ELEKTRA                  ##
+##############################################
+
+- platform: template
+  sensors:
+    energy_import_t2_dagelijks_eur:
+      friendly_name: 'Dagelijkse kosten nomaal tarief (T2)'
+      value_template: "{{ (states('sensor.energy_import_t2_dagelijks')|float * states('input_number.t2_energy_cost')|float)|round(2) }}"
+      unit_of_measurement: "€"
+  
+- platform: template
+  sensors:
+    energy_import_t2_wekelijks_eur:
+      friendly_name: 'Wekelijkse kosten nomaal tarief (T2)'
+      value_template: "{{ (states('sensor.energy_import_t2_wekelijks')|float * states('input_number.t2_energy_cost')|float)|round(2) }}"
+      unit_of_measurement: "€"
+
+- platform: template
+  sensors:
+    energy_import_t2_maandelijks_eur:
+      friendly_name: 'Maandelijkse kosten nomaal tarief (T2)'
+      value_template: "{{ (states('sensor.energy_import_t2_maandelijks')|float * states('input_number.t2_energy_cost')|float)|round(2) }}"
+      unit_of_measurement: "€"
+        
+##############################################  
+  
+- platform: template
+  sensors:
+    energy_import_t1_dagelijks_eur:
+      friendly_name: 'Dagelijkse kosten dal tarief (T1)'
+      value_template: "{{ (states('sensor.energy_import_t1_dagelijks')|float * states('input_number.t1_energy_cost')|float)|round(2) }}" 
+      unit_of_measurement: "€"
+
+- platform: template
+  sensors:
+    energy_import_t1_wekelijks_eur:
+      friendly_name: 'Wekelijkse kosten dal tarief (T1)'
+      value_template: "{{ (states('sensor.energy_import_t1_wekelijks')|float * states('input_number.t1_energy_cost')|float)|round(2) }}"
+      unit_of_measurement: "€"
+
+- platform: template
+  sensors:
+    energy_import_t1_maandelijks_eur:
+      friendly_name: 'Maandelijkse kosten dal tarief (T1)'
+      value_template: "{{ (states('sensor.energy_import_t1_maandelijks')|float * states('input_number.t1_energy_cost')|float)|round(2) }}"
+      unit_of_measurement: "€"
+        
+##############################################  		
+
+- platform: template
+  sensors:
+    energy_import_total_dagelijks_eur:
+      friendly_name: 'Dagelijkse kosten dal + normaal'
+      value_template: "{{ (states('sensor.energy_import_t2_dagelijks_eur')|float + states('sensor.energy_import_t1_dagelijks_eur')|float)|round(2) }}"
+      unit_of_measurement: "€"
+
+- platform: template
+  sensors:
+    energy_import_total_wekelijks_eur:
+      friendly_name: 'Wekelijkse kosten dal + normaal'
+      value_template: "{{ (states('sensor.energy_import_t2_wekelijks_eur')|float + states('sensor.energy_import_t1_wekelijks_eur')|float)|round(2) }}"
+      unit_of_measurement: "€"
+
+- platform: template
+  sensors:
+    energy_import_total_maandelijks_eur:
+      friendly_name: 'Maandelijkse kosten dal + normaal'
+      value_template: "{{ (states('sensor.energy_import_t2_maandelijks_eur')|float + states('sensor.energy_import_t1_maandelijks_eur')|float)|round(2) }}"
+      unit_of_measurement: "€"
+
+############################################## 
+
+- platform: template
+  sensors:
+    energy_import_total_dagelijks_kwh:
+      friendly_name: 'kWh vandaag dal + normaal'
+      value_template: "{{ (states('sensor.energy_import_t1_dagelijks')|float + states('sensor.energy_import_t2_dagelijks')|float)|round(2) }}"
+      unit_of_measurement: "kWh"
+
+
+- platform: template
+  sensors:
+    energy_import_total_wekelijks_kwh:
+      friendly_name: 'kWh wekelijks dal + normaal'
+      value_template: "{{ (states('sensor.energy_import_t1_wekelijks')|float + states('sensor.energy_import_t2_wekelijks')|float)|round(2) }}"
+      unit_of_measurement: "kWh"
+
+- platform: template
+  sensors:
+    energy_import_total_maandelijks_kwh:
+      friendly_name: 'kWh maandelijks dal + normaal'
+      value_template: "{{ (states('sensor.energy_import_t1_maandelijks')|float + states('sensor.energy_import_t2_maandelijks')|float)|round(2) }}"
+      unit_of_measurement: "kWh"
+ 
+ ############################################## 
+ ##                    GAS                   ##
+ ##############################################
+ 
+- platform: template
+  sensors:
+    energy_gas_daily_eur:
+      friendly_name: 'Dagelijkse kosten gas'
+      value_template: "{{ (states('sensor.energy_gas_dagelijks')|float * states('input_number.gas_energy_cost')|float)|round(2) }}"
+      unit_of_measurement: "€"
+  
+- platform: template
+  sensors:
+    energy_gas_weekly_eur:
+      friendly_name: 'Wekelijkse kosten gas'
+      value_template: "{{ (states('sensor.energy_gas_wekelijks')|float * states('input_number.gas_energy_cost')|float)|round(2) }}"
+      unit_of_measurement: "€"
+        
+- platform: template
+  sensors:
+    energy_gas_monthly_eur:
+      friendly_name: 'Maandelijkse kosten gas'
+      value_template: "{{ (states('sensor.energy_gas_maandelijks')|float * states('input_number.gas_energy_cost')|float)|round(2) }}"
+      unit_of_measurement: "€"   
+
+ ############################################## 
+ ##   Totale netto kosten (Gas + electra)    ##
+ ##############################################
+ 
+- platform: template
+  sensors:
+    energy_gas_en_elektriciteit_dagelijks_eur:
+      friendly_name: 'Totale netto dag kosten energie'
+      value_template: "{{ (states('sensor.energy_gas_daily_eur')|float + states('sensor.energy_import_total_dagelijks_eur')|float)|round(2) }}"
+      unit_of_measurement: "€"
+
+- platform: template
+  sensors:
+    energy_gas_en_elektriciteit_wekelijks_eur:
+      friendly_name: 'Totale netto week kosten energie'
+      value_template: "{{ (states('sensor.energy_gas_weekly_eur')|float + states('sensor.energy_import_total_wekelijks_eur')|float)|round(2) }}"
+      unit_of_measurement: "€"
+
+- platform: template
+  sensors:
+    energy_gas_en_elektriciteit_maandelijks_eur:
+      friendly_name: 'Totale netto maand kosten energie'
+      value_template: "{{ (states('sensor.energy_gas_monthly_eur')|float + states('sensor.energy_import_total_maandelijks_eur')|float)|round(2) }}"
+      unit_of_measurement: "€"
+      
+- platform: template
+  sensors:
+    kwartierpiek_t1t2:
+      friendly_name: kwartierpiek
+      unit_of_measurement: kWh
+      value_template: "{{ (states('sensor.kwartierpiek_t1')|float + states('sensor.kwartierpiek_t2')|float) | round(3)}}"
+    daily_energy:
+      friendly_name: Daily Energy
+      unit_of_measurement: kWh
+      value_template: "{{ (states('sensor.daily_energy_offpeak')|float + states('sensor.daily_energy_peak')|float) | round(3)}}"
+    daily_injection:
+      friendly_name: Daily Injection
+      unit_of_measurement: kWh
+      value_template: "{{ (states('sensor.daily_injection_peak')|float + states('sensor.daily_injection_offpeak')|float) | round(3) }}"
+
+- platform: statistics
+  entity_id: sensor.kwartierpiek
+  max_age:
+    days: 365

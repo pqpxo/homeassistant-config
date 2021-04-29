@@ -1,0 +1,63 @@
+- alias: "Notificatie: Afvalwijzer"
+  trigger:
+    platform: time
+    at: '19:00:00'
+  condition:
+    - condition: template
+      value_template: "{{ states('sensor.circulus_berkel_morgen') != 'Geen' }}"
+  action:
+  - service: notify.all_iphones
+    data:
+      title: "♻️ Afvalwijzer"
+      message: 'Afvaltype(n): {{ states.sensor.circulus_berkel_morgen.state }} wordt morgen opgehaald!'
+      data:
+        url: /dwains-dashboard/more_page_addon_afvalwijzer
+  - service: media_player.volume_set
+    data:
+      volume_level: 0,65
+    entity_id: media_player.google_home_hub
+  - service: tts.google_translate_say
+    data:
+      entity_id: media_player.google_home_hub
+      message: 'Container {{ states.sensor.circulus_berkel_morgen.state }} wordt morgen opgehaald!'
+  mode: single
+- alias: "Notificatie Dwains Dashboard: Afvalwijzer morgen"
+  description: 'This automation creates a notification in Dwains theme'
+  trigger:
+  - at: '00:01'
+    platform: time
+  condition:
+    - condition: template
+      value_template: "{{ states('sensor.circulus_berkel_morgen') != 'Geen' }}"
+  action:
+  - service: dwains_dashboard.notification_create
+    data:
+      message: "{{ states.sensor.circulus_berkel_morgen.state }} wordt morgen opgehaald."
+      notification_id: garbage
+
+- alias: "Notificatie Dwains Dashboard: Afvalwijzer vandaag"
+  description: 'This automation edits the previous notification in Dwains theme'
+  trigger:
+  - at: '00:01'
+    platform: time
+  condition:
+    - condition: template
+      value_template: "{{ states('sensor.circulus_berkel_vandaag') != 'Geen' }}"
+  action:
+  - service: dwains_dashboard.notification_create
+    data:
+      message: "{{ states.sensor.circulus_berkel_vandaag.state }} wordt vandaag opgehaald."
+      notification_id: garbage
+
+- alias: "Notificatie Dwains Dashboard: Afvalwijzer verwijder melding"
+  description: 'This automation dismisses the garbage notification in Dwains theme'
+  trigger:
+  - at: '23:59'
+    platform: time
+  condition:
+    - condition: template
+      value_template: "{{ states('sensor.circulus_berkel_vandaag') != 'Geen' }}"
+  action:
+  - service: dwains_dashboard.notification_dismiss
+    data:
+      notification_id: garbage

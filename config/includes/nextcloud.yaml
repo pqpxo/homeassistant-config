@@ -1,0 +1,4 @@
+
+  url: http://!secret
+  username: !secret
+  password: !secret

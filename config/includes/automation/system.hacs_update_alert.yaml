@@ -1,0 +1,32 @@
+- id: systeem_hacs_update_notificatie
+  alias: "Systeem: HACS update notificatie"
+  trigger:
+    platform: state
+    entity_id: sensor.hacs
+  condition:
+    - condition: template
+      value_template: "{{ states(trigger.entity_id) != 'unknown'}}"
+    - condition: template
+      value_template: "{{ (states(trigger.entity_id) | float) != 0}}"
+  action:
+    - service: notify.all_devices_leon
+      data_template:
+        title: "🚧 HACS update"
+        message: >-
+          {% for repo in state_attr(trigger.entity_id, 'repositories') %}
+          - {{ repo.display_name }} ({{ repo["available_version"] }})
+
+          {% endfor %}
+        data:
+          url: /hacs
+          attachment:
+            content-type: png
+            url: https://cdn1.iconfinder.com/data/icons/basic-ui-elements-color/700/012_refresh-512.png
+    # - service: persistent_notification.create
+    #   data_template:
+    #     title: "HACS update"
+    #     message: >-
+    #       {% for repo in state_attr(trigger.entity_id, 'repositories') %}
+    #       - {{ repo.display_name }} ({{ repo["available_version"] }})
+          
+    #       {% endfor %}

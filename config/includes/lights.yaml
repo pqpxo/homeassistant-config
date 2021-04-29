@@ -1,0 +1,43 @@
+########################################################################
+### LIGHT
+########################################################################
+  - platform: group
+    name: eettafel
+    entities:
+      - light.eettafel_links
+      - light.eettafel_rechts
+      
+  - platform: group
+    name: aanrecht
+    entities:  
+      - light.aanrecht_rechts
+      - light.aanrecht_links
+      
+  - platform: group
+    name: Bed lampen
+    entities:
+      - light.bed_links
+      - light.bed_rechts  
+      
+  - platform: group
+    name: Was lampen
+    entities:
+      - light.zolder1
+      - light.zolder2
+      - light.zolder3
+      
+  - platform: group
+    name: Woonkamer lights
+    entities: 
+      - light.booglamp
+      - light.tv_lamp
+      - light.lightstrip
+      - light.plafonniere
+      - light.ambilight
+
+  - platform: group
+    name: Ambilight
+    entities:
+      - light.ambilight_links
+      - light.ambilight_midden
+      - light.ambilight_rechts

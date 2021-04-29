@@ -1,0 +1,251 @@
+#  _____                    _       _
+# |_   _|__ _ __ ___  _ __ | | __ _| |_ ___    ___  ___ _ __  ___  ___  _ __ ___
+#   | |/ _ \ '_ ` _ \| '_ \| |/ _` | __/ _ \  / __|/ _ \ '_ \/ __|/ _ \| '__/ __|
+#   | |  __/ | | | | | |_) | | (_| | ||  __/  \__ \  __/ | | \__ \ (_) | |  \__ \
+#   |_|\___|_| |_| |_| .__/|_|\__,_|\__\___|  |___/\___|_| |_|___/\___/|_|  |___/
+#                    |_|
+
+  - platform: template
+    sensors:
+      count_automations:
+        icon_template: mdi:autorenew
+        value_template: "{{ states.automation | count }}"
+
+      count_scripts:
+        icon_template: mdi:script-text-outline
+        value_template: "{{ states.script| count }}"
+
+      count_device_trackers:
+        icon_template: mdi:map-marker
+        value_template: "{{ states.device_tracker | count }}"
+
+      count_binary_sensors:
+        icon_template: mdi:unfold-more-horizontal
+        value_template: "{{ states.binary_sensor| count }}"
+
+      count_sensors:
+        icon_template: mdi:resistor
+        value_template: "{{ states.sensor | count }}"
+
+      count_switches:
+        icon_template: mdi:light-switch
+        value_template: "{{ states.switch | count }}"
+
+      count_zones:
+        icon_template: mdi:map-marker-radius
+        value_template: "{{ states.zone | count }}"
+
+      count_input_booleans:
+        icon_template: mdi:toggle-switch
+        value_template: "{{ states.input_boolean | count }}"
+
+      count_input_numbers:
+        icon_template: mdi:numeric
+        value_template: "{{ states.input_number | count }}"
+
+      count_input_texts:
+        icon_template: mdi:alphabetical
+        value_template: "{{ states.input_text | count }}"
+
+      count_input_selects:
+        icon_template: mdi:view-list
+        value_template: "{{ states.input_select | count }}"
+
+      count_input_datetimes:
+        icon_template: mdi:calendar-clock
+        value_template: "{{ states.input_datetime | count }}"
+    
+    
+          
+      timestamp_start_of_today:
+        value_template: >
+          {% set _ = states("sensor.date") %}
+          {{ as_timestamp(now().replace(hour=0).replace(minute=0).replace(second=0)) }}
+        unit_of_measurement: "s"
+
+      time_at_work_prognosis:
+        value_template: >
+          {% set day = [now().weekday(), 4] | min %}
+          {% set t_total = states("sensor.time_at_work_this_week")|float %}
+          {% set t_today = states("sensor.time_at_work_today")|float %}
+          {% set hours_per_day_including_today = t_total / (day + 1) %}
+          {% set hours_per_day_excluding_today = (t_total - t_today ) / (day + 10**-16) %}
+          {% set seven_oclock = as_timestamp(now().replace(hour=19).replace(minute=0).replace(second=0)) %}
+          {% if t_today > hours_per_day_excluding_today
+                or (not is_state("person.leon", "Work") and t_today > 0)
+                or (as_timestamp(now()) > seven_oclock)
+                or day == 0
+                or now().weekday() > 4
+                or 5 * hours_per_day_including_today > 40 %}
+            {% set hours_per_day = hours_per_day_including_today %}
+          {% else %}
+            {% set hours_per_day = hours_per_day_excluding_today %}
+          {% endif %}
+          {{ (5 * hours_per_day)|round(2) }}
+        unit_of_measurement: h
+
+      n_days_last_month:
+        value_template: >
+          {% set _ = states("sensor.date") %}
+          {% set start_of_month = now().replace(day=1) %}
+          {% set start_of_last_month = start_of_month.replace(month=now().month-1) %}
+          {{ ((start_of_month - start_of_last_month).total_seconds() / 86400) | round }}
+  
+#   ___  _   _
+#  / _ \| |_| |__   ___ _ __ ___
+# | | | | __| '_ \ / _ \ '__/ __|
+# | |_| | |_| | | |  __/ |  \__ \
+#  \___/ \__|_| |_|\___|_|  |___/
+#
+
+# XXX: not used
+  - platform: min_max
+    name: Temperature mean
+    type: mean
+    entity_ids:
+      - sensor.zolder_sensor_temperature
+      - sensor.netatmo_netatmo_huis_netatmo_woonkamer_netatmo_zolder_temperature
+      - sensor.woonkamer_temperature
+      - sensor.netatmo_netatmo_huis_netatmo_woonkamer_temperature
+      - sensor.wc_sensor_temperature
+      - sensor.temperature_sensor_temperature_2
+      - sensor.temperature_sensor_temperature
+      - sensor.netatmo_netatmo_huis_netatmo_woonkamer_netatmo_master_bedroom_temperature
+      - sensor.entree_sensor_temperature
+      - sensor.badkamer_sensor_temperature
+
+  - platform: version
+    name: Installed Version
+    source: local
+  
+  - platform: uptime
+    unit_of_measurement: hours
+
+  - platform: filesize
+    file_paths:
+      - /config/.storage/lovelace
+
+
+#  _____ _                  _                  _
+# |_   _(_)_ __ ___   ___  | |_ _ __ __ _  ___| | _____ _ __ ___
+#   | | | | '_ ` _ \ / _ \ | __| '__/ _` |/ __| |/ / _ \ '__/ __|
+#   | | | | | | | | |  __/ | |_| | | (_| | (__|   <  __/ |  \__ \
+#   |_| |_|_| |_| |_|\___|  \__|_|  \__,_|\___|_|\_\___|_|  |___/
+#
+
+
+  - platform: history_stats
+    name: Hours TV has been on last 7 days
+    entity_id: media_player.tv_woonkamer
+    state: "on"
+    type: time
+    duration:
+      days: 7
+    end: "{{ now() }}"
+
+  - platform: history_stats
+    name: Times TV has been on last 7 days
+    entity_id: media_player.tv_woonkamer
+    state: "on"
+    type: count
+    duration:
+      days: 7
+    end: "{{ now() }}"
+    
+  - platform: history_stats
+    name: Hours washing machine has been on last 7 days
+    entity_id: binary_sensor.washing_machine
+    state: "on"
+    type: time
+    duration:
+      days: 7
+    end: "{{ now() }}"
+
+  - platform: history_stats
+    name: Times washing machine has been on last 7 days
+    entity_id: binary_sensor.washing_machine
+    state: "on"
+    type: count
+    duration:
+     days: 7
+    end: "{{ now() }}"   
+    
+  - platform: history_stats
+    name: Quarantine meter Léon
+    entity_id: person.leon
+    state: "home"
+    type: ratio
+    duration:
+      days: 14
+    end: "{{ now() }}"
+
+  - platform: history_stats
+    name: Quarantine meter Ellen
+    entity_id: person.ellen
+    state: "home"
+    type: ratio
+    duration:
+      days: 14
+    end: "{{ now() }}"    
+    
+  - platform: history_stats
+    name: Quarantine meter Léon times left
+    entity_id: person.leon
+    state: "home"
+    type: count
+    duration:
+      days: 14
+    end: "{{ now() }}"
+
+  - platform: history_stats
+    name: Quarantine meter Ellen times left
+    entity_id: person.ellen
+    state: "home"
+    type: count
+    duration:
+      days: 14
+    end: "{{ now() }}"    
+    
+  - platform: scrape
+    resource: https://www.knmi.nl/nederland-nu/weer/waarschuwingen/gelderland
+    select: "div.alert__heading"
+    name: "knmi weercode"
+    scan_interval: 300
+
+  - platform: scrape
+    resource: https://www.knmi.nl/nederland-nu/weer/waarschuwingen/gelderland
+    select: "a.alert__description"
+    name: "knmi weer waarschuwing"
+    scan_interval: 300    
+      
+  - platform: moon      
+
+  - platform: command_line
+    command: python3 -c "import requests; import json; import random; dataRequest = requests.get('https://gpsgadget.buienradar.nl/data/raintext?lat={{state_attr("zone.home", "latitude") | round(2)}}&lon={{state_attr("zone.home", "longitude") | round(2)}}&c='+str(random.randint(0,999999999999999)) ).text; dataRequest = dataRequest.replace('\r\n',' '); data = '{\"data\":\"'+dataRequest+'\"}';    print(data);"
+    name: Neerslag_Buienradar_Regen_Data
+    json_attributes:
+      - data
+    value_template: 'last_changed: {{states.sensor.neerslag_buienradar_regen_data.last_changed | default(now())}}'
+    scan_interval: 240      
+
+#ubiquiti store
+  - platform: scrape
+    name: "G3 instant title"
+    resource: https://eu.store.ui.com/collections/unifi-protect/products/unifi-protect-g3-instant-camera
+    select: ".comProduct__title--wrapper"
+    scan_interval: 60
+
+  - platform: template
+    sensors:
+      20_sensor:
+        friendly_name: '20'
+        value_template: >
+          20
+
+  - platform: template
+    sensors:
+      19_sensor:
+        friendly_name: '19'
+        value_template: >
+          19
+        

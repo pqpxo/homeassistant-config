@@ -1,0 +1,10 @@
+  - platform: unifigateway
+    host: https://192.168.1.!secret
+    username: !secret
+    password: !secret
+    monitored_conditions:
+      - www
+      - wlan
+      - alerts
+      - firmware
+

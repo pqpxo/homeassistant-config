@@ -1,0 +1,6 @@
+  - platform: my_unifi
+    name: Unifi
+    region: Unifi !secret
+    username: !secret
+    password: !secret
+    url: https://192.168.1.!secret

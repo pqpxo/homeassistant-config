@@ -1,0 +1,4 @@
+- platform: co2signal
+  token: !secret
+  latitude: 11.11
+  longitude: 1.11  

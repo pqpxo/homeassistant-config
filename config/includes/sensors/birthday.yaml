@@ -1,0 +1,21 @@
+- platform: template
+  sensors:      
+    birthday:
+      friendly_name: Birthday
+      icon_template: fas:gifts
+      value_template: >
+        {% set birthdayMonthNr = as_timestamp(strptime(state_attr('calendar.friends_birthdays', 'start_time'), '%d %h %m')) | timestamp_custom('%U') %}
+        {% set curmMonthNr = as_timestamp(now()) | timestamp_custom('%U') %}
+        
+        {% if birthdayMonthNr != curMonthNr %}
+          No birthday planned for this month.
+        {% else %}
+          There is a birthday planned for this month.
+        {% endif %}
+      attribute_templates:
+        birthday_day: >
+            {{ as_timestamp(strptime(state_attr('calendar.friends_birthdays', 'start_time'), '%d %h %m')) | timestamp_custom('%A %d %B') | replace("Thursday", "donderdag") | replace("Friday", "vrijdag") | replace("Saturday", "zaterdag") | replace("Sunday", "zondag") | replace("January", "Januari") | replace("February", "Februari") | replace("March", "Maart") | replace("May", "Mei") | replace("June", "Juni") | replace("July", "Juli") | replace("August", "Augustus") | replace("October", "Oktober") }}
+        birthday_time: >
+            {{ as_timestamp(strptime(state_attr('calendar.friends_birthdays', 'start_time'), '%d %h %m')) | timestamp_custom('%H:%M') }}
+        birthday_name: >
+            {{ state_attr('calendar.friends_birthdays', 'message') | replace ('Birthday: 2021 ','') }}

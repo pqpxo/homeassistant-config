@@ -1,0 +1,23 @@
+- platform: p2000
+  name: P2000 Apeldoorn Zuidbroek
+  regios: 6
+  disciplines: 1,2,3
+  radius: 1000
+  scan_interval: 10
+  latitude: !secret
+  longitude: !secret
+  icon: mdi:car-emergency
+  
+- platform: p2000
+  name: P2000 Apeldoorn
+  regios: 6
+  disciplines: 1,2,3
+  radius: 10000
+  scan_interval: 10
+  
+- platform: p2000
+  name: P2000 Gelderland
+  regios: 6
+  disciplines: 1,2,3
+  radius: 20000
+  scan_interval: 10

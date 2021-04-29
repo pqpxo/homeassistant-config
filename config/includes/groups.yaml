@@ -1,0 +1,217 @@
+#-
+#
+#   __ _ _ __ ___  _   _ _ __  ___
+#  / _` | '__/ _ \| | | | '_ \/ __|
+# | (_| | | | (_) | |_| | |_) \__ \
+#  \__, |_|  \___/ \__,_| .__/|___/
+#  |___/                |_|
+#
+#- from github.com/basnijholt/home-assistant-config
+
+verlichting_keuken_groep:
+  name: Verlichting Keuken Groep
+  entities:
+    - light.aanrecht
+    - light.eettafel
+
+verlichting_woonkamer_groep:
+  name: Verlichting Woonkamer Groep
+  entities:
+    - light.tv_lamp
+    - light.plafonniere
+    - light.lightstrip
+    - light.booglamp
+    - light.ambilight
+    - switch.virtual_olielamp_ha
+    - switch.virtual_openhaard_ha
+
+verlichting_badkamer_groep:
+  name: Verlichting Badkamer Groep
+  entities:
+    - light.badkamer_lamp
+    - light.spiegel
+
+verlichting_overloop_groep:
+  name: Verlichting Overloop Groep
+  entities:
+    - light.aqara_overloop_nachtlampje
+    - light.overloop_lamp
+
+verlichting_master_bedroom_groep:
+  name: Verlichting Master Bedroom Groep
+  entities:
+    - light.bed_links
+    - light.bed_rechts
+    - light.lamp_mb
+
+verlichting_slaapkamer_fay_groep:
+  name: Verlichting Slaapkamer Fay Groep
+  entities:
+    - light.fay
+    - light.nachtlampje_fay
+
+verlichting_slaapkamer_nyk_groep:
+  name: Verlichting Slaapkamer Nyk Groep
+  entities:
+    - light.nyk
+    - light.nachtlampje_nyk
+
+verlichting_slaapkamer_kai_groep:
+  name: Verlichting Slaapkamer Kai Groep
+  entities:
+    - switch.bol_lamp_kai
+    - light.play_kai
+
+verlichting_slaapkamer_eliza_groep:
+  name: Verlichting Slaapkamer Eliza Groep
+  entities:
+    - light.eliza
+    - light.play_eliza
+
+verlichting_kantoor_groep:
+  name: Verlichting Kantoor Groep
+  entities:
+    - switch.bureau
+    - light.zolder_lamp
+
+verlichting_zolder_groep:
+  name: Verlichting Zolder Groep
+  entities:
+    - light.was_lampen
+    - light.play_zolder
+
+verlichting_tuin_groep:
+  name: Verlichting Tuin Groep
+  entities:
+    - light.achterdeur
+    - light.lightstrip_outdoor
+    - switch.overkapping_mss620_veranda
+    - light.vijver_lamp
+
+media_player_woonkamer_groep:
+  name: Media Players Woonkamer Groep
+  entities:
+    - media_player.tv_woonkamer
+    - media_player.apple_tv_woonkamer
+    - media_player.sync_box
+    - media_player.sonos
+    - media_player.connect
+    - media_player.ps4
+    - media_player.google_home_hub
+    - media_player.chromecast_woonkamer
+    - media_player.spotify_leon_van_der_linden
+
+media_player_mb_groep:
+  name: Media Players Master Bedroom Groep
+  entities:
+    - media_player.apple_tv_master_bedroom
+    - media_player.home_mini_master_bedroom
+
+media_player_slaapkamer_kai_groep:
+  name: Media Players Slaapkamer Kai Groep
+  entities:
+    - media_player.tv_kai
+    - media_player.home_mini_kai
+
+switch_meterkast_groep:
+  name: Switch Meterkast Groep
+  entities:
+    - binary_sensor.ib3126856448_connection_state
+    - sensor.hacs
+    - binary_sensor.remote_ui
+    - binary_sensor.homevdlinden_nl
+    - binary_sensor.cloudvdlinden_nl
+    - binary_sensor.synology_dsm
+    - binary_sensor.virtual_machine
+
+switch_woonkamer_groep:
+  name: Switch Woonkamer Groep
+  entities:
+    - switch.virtual_tv_meubel
+    - switch.ps4_controllers
+    - switch.koogeek_1
+    - switch.oplader
+    - switch.rituals
+    - media_player.sync_box
+
+switch_master_bedroom_groep:
+  name: Switch Master Bedroom Groep
+  entities:
+    - switch.virtual_tv_mb_ha
+
+switch_slaapkamer_kai_groep:
+  name: Switch Slaapkamer Kai Groep
+  entities:
+    - switch.tv_kai
+
+switch_kantoor_groep:
+  name: Switch Kantoor Groep
+  entities:
+    - switch.kantoor
+    
+switch_zolder_groep:
+  name: Switch Zolder Groep
+  entities:
+    - sensor.wasmachine
+    
+
+switch_tuin_groep:
+  name: Switch Tuin Groep
+  entities:
+    - switch.overkapping_mss620_heather
+    - switch.virtual_tuinslang_ha
+
+persons:
+  name: People
+  entities:
+    - person.leon
+    - person.ellen
+    
+beweging_notify_groep:
+  name: Beweging Notify Groep
+  entities:
+    - automation.beweging_slaapkamer_fay
+    - automation.beweging_slaapkamer_nyk
+    - automation.beweging_slaapkamer_kai
+    - automation.beweging_zolder
+    
+deur_notify_groep:
+  name: Deur Notify Groep
+  entities:
+    - automation.achterdeur_open_2
+    - automation.voordeur_open
+ 
+automation_light_groep:
+  name: Automation Light Groep
+  entities:
+    - automation.opstaan
+    - automation.opstaan_uit
+    - automation.goedemorgen
+    - automation.nachtlampen_aan
+    - automation.scene_avond1_2
+    - automation.veranda_aan
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
