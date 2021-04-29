@@ -67,21 +67,21 @@
 ---
 | Icon | Device | Total |
 |------|:--------------:|:------:|
-| 💻 | [Gateways](https://github.com/LRvdLinden/homeassistant-config/tree/main/Docs/Devices#-gateways) | 6 |
-| 🌡️ | [Climate](https://github.com/LRvdLinden/homeassistant-config/tree/main/Docs/Devices#%EF%B8%8F-climate) | 7 |
-| 📱 | [Apple devices in HA](https://github.com/LRvdLinden/homeassistant-config/tree/main/Docs/Devices#-apple-devices-in-ha) | 23 |
-| 💡 | [Lights in HA](https://github.com/LRvdLinden/homeassistant-config/tree/main/Docs/Devices#lights-in-ha) | 32 |
-| 🚶 | [Motion sensors in HA](https://github.com/LRvdLinden/homeassistant-config/tree/main/Docs/Devices#motion-sensors-in-ha) | 6 |
-| 🔌 | [Electric Plug in HA](https://github.com/LRvdLinden/homeassistant-config/tree/main/Docs/Devices#-electric-plug-in-ha) | 15 |
-| 🔘 | [Switches in HA](https://github.com/LRvdLinden/homeassistant-config/tree/main/Docs/Devices#-switches-in-ha) | 8 |
-| 📹 | [Camera's in HA](https://github.com/LRvdLinden/homeassistant-config/tree/main/Docs/Devices#-cameras-in-ha) | 6 |
-| 📺 | [Televisions in HA](https://github.com/LRvdLinden/homeassistant-config/blob/main/Docs/Devices/README.md#-televisions-in-ha) | 6 |
-| 🎮 | [Game consoles in HA](https://github.com/LRvdLinden/homeassistant-config/blob/main/Docs/Devices/README.md#-game-consols-in-ha) | 2 |
-| 🔈 | [Speakers in HA](https://github.com/LRvdLinden/homeassistant-config/tree/main/Docs/Devices#-speakers-in-ha) | 9 |
-| 🌸 | [Perfume diffuser in HA](https://github.com/LRvdLinden/homeassistant-config/tree/main/Docs/Devices#-perfume-diffuser-in-ha) | 1 |
-| 👕 | [Washing machine in HA](https://github.com/LRvdLinden/homeassistant-config/blob/main/Docs/Devices/README.md#-washing-machine-in-ha) | 1 |
-| ⚡ | [High voltage in ha](https://github.com/LRvdLinden/homeassistant-config/blob/main/Docs/Devices/README.md#-high-voltage-in-ha) | 1 | 
-| 🖨 | [Printer in ha](https://github.com/LRvdLinden/homeassistant-config/blob/main/Docs/Devices/README.md#-printer-in-ha) | 1 | 
+| 💻 | [Gateways](https://github.com/LRvdLinden/homeassistant-config/blob/main/Docs/Devices.md#-gateways) | 6 |
+| 🌡️ | [Climate](https://github.com/LRvdLinden/homeassistant-config/blob/main/Docs/Devices.md#-gateways-climate) | 7 |
+| 📱 | [Apple devices in HA](https://github.com/LRvdLinden/homeassistant-config/tree/main/Docs/Devices.md#-apple-devices-in-ha) | 23 |
+| 💡 | [Lights in HA](https://github.com/LRvdLinden/homeassistant-config/tree/main/Docs/Devices.md#lights-in-ha) | 32 |
+| 🚶 | [Motion sensors in HA](https://github.com/LRvdLinden/homeassistant-config/tree/main/Docs/Devices.md#motion-sensors-in-ha) | 6 |
+| 🔌 | [Electric Plug in HA](https://github.com/LRvdLinden/homeassistant-config/tree/main/Docs/Device.mds#-electric-plug-in-ha) | 15 |
+| 🔘 | [Switches in HA](https://github.com/LRvdLinden/homeassistant-config/tree/main/Docs/Devices.md#-switches-in-ha) | 8 |
+| 📹 | [Camera's in HA](https://github.com/LRvdLinden/homeassistant-config/tree/main/Docs/Devices.md#-cameras-in-ha) | 6 |
+| 📺 | [Televisions in HA](https://github.com/LRvdLinden/homeassistant-config/blob/main/Docs/Devices.md#-televisions-in-ha) | 6 |
+| 🎮 | [Game consoles in HA](https://github.com/LRvdLinden/homeassistant-config/blob/main/Docs/Devices.md#-game-consols-in-ha) | 2 |
+| 🔈 | [Speakers in HA](https://github.com/LRvdLinden/homeassistant-config/tree/main/Docs/Devices.md#-speakers-in-ha) | 9 |
+| 🌸 | [Perfume diffuser in HA](https://github.com/LRvdLinden/homeassistant-config/tree/main/Docs/Devices.md#-perfume-diffuser-in-ha) | 1 |
+| 👕 | [Washing machine in HA](https://github.com/LRvdLinden/homeassistant-config/blob/main/Docs/Devices.md#-washing-machine-in-ha) | 1 |
+| ⚡ | [High voltage in ha](https://github.com/LRvdLinden/homeassistant-config/blob/main/Docs/Devices.md#-high-voltage-in-ha) | 1 | 
+| 🖨 | [Printer in ha](https://github.com/LRvdLinden/homeassistant-config/blob/main/Docs/Devices.md#-printer-in-ha) | 1 | 
 
 ### 🎨 Menu Home Assistant
 ---
