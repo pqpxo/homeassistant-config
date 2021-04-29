@@ -1,0 +1,3 @@
+http:
+  cors_allowed_origins:
+    - https://cast.home-assistant.io

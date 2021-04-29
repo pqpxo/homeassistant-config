@@ -1,0 +1,121 @@
+sensor.circulus_berkel_gft:
+  entity_picture: /local/images/afvalwijzer/afval_gft_small.png
+  friendly_name: GFT
+sensor.circulus_berkel_morgen:
+  friendly_name: morgen
+sensor.circulus_berkel_papier:
+  entity_picture: /local/images/afvalwijzer/afval_papier_small.png
+  friendly_name: Papier
+sensor.circulus_berkel_pmd:
+  entity_picture: /local/images/afvalwijzer/afval_pmd_small.png
+  friendly_name: PMD
+sensor.circulus_berkel_vandaag:
+  friendly_name: vandaag
+alarm_control_panel.ha_alarm:
+  friendly_name: Alarm Control Center
+  icon: ios:bell
+sensor.p2000_achterhoek:
+  friendly_name: P2000
+sensor.count_automations:
+  friendly_name: Automations
+sensor.count_binary_sensors:
+  friendly_name: Binary sensors
+sensor.count_device_trackers:
+  friendly_name: Trackers
+sensor.count_input_booleans:
+  friendly_name: Booleans
+sensor.count_input_datetimes:
+  friendly_name: Datetimes
+  icon: ios:calendar-badge-clock
+sensor.count_input_numbers:
+  friendly_name: Numbers
+sensor.count_input_selects:
+  friendly_name: Selects
+sensor.count_input_texts:
+  friendly_name: Texts
+sensor.count_scripts:
+  friendly_name: Scripts
+sensor.count_sensors:
+  friendly_name: Sensors
+sensor.count_switches:
+  friendly_name: Switches
+sensor.count_zones:
+  friendly_name: Zones
+light.eettafel:
+  friendly_name: Eettafel
+light.aanrecht:
+  friendly_name: Aanrecht
+sensor.co2_intensity_52_21_5_97:
+  friendly_name: Buiten co2
+  unit_of_measurement: ppm
+sensor.counter_achterdeur:
+  icon: fas:door-open
+sensor.counter_voordeur:
+  icon: fas:door-open
+sensor.knmi_weer_waarschuwing:
+  friendly_name: KNMI waarschuwing
+  icon: fas:poo-storm
+sensor.knmi_weercode:
+  friendly_name: KNMI code
+  icon: fas:exclamation-triangle
+sensor.moon:
+  friendly_name: Maan
+sun.sun:
+  friendly_name: Zon
+  icon: ios:sun-min
+sensor.season:
+  friendly_name: Seizoen
+group.switch_slaapkamer_kai_groep:
+  icon: mdi:power-socket-de
+group.media_player_slaapkamer_kai_groep:
+  icon: mdi:cast
+group.verlichting_slaapkamer_kai_groep:
+  icon: mdi:lightbulb-group
+group.verlichting_slaapkamer_fay_groep:
+  icon: mdi:lightbulb-group
+group.verlichting_slaapkamer_nyk_groep:
+  icon: mdi:lightbulb-group
+group.automation_light_groep:
+  icon: mdi:lightbulb-group
+group.deur_notify_groep:
+  icon: fas:door-open
+group.beweging_notify_groep:
+  icon: hass:walk
+calendar.ellen:
+  icon: ios:calendar
+calendar.f1_race:
+  icon: ios:calendar
+calendar.feestdagen_in_nederland:
+  icon: ios:calendar
+calendar.formula_1_calendar_fp1:
+  icon: ios:calendar
+calendar.formula_1_calendar_fp2:
+  icon: ios:calendar
+calendar.formula_1_calendar_fp3:
+  icon: ios:calendar
+calendar.formula_1_calendar_qualifying:
+  icon: ios:calendar
+calendar.formula_1_calendar_race:
+  icon: ios:calendar
+calendar.friends_birthdays:
+  icon: ios:calendar
+calendar.gezin:
+  icon: ios:calendar
+calendar.kwalificatie:
+  icon: ios:calendar
+calendar.leon:
+  icon: ios:calendar
+calendar.vt1:
+  icon: ios:calendar
+calendar.vt2:
+  icon: ios:calendar
+calendar.vt3:
+  icon: ios:calendar
+sensor.date:
+  icon: ios:calendar
+sensor.date_time:
+  icon: ios:calendar-badge-clock
+sensor.trakt_upcoming_calendar:
+  icon: ios:calendar
+sensor.time_date:
+  icon: ios:calendar-badge-clock

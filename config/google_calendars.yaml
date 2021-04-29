@@ -1,0 +1,98 @@
+
+- cal_id: !secret@gmail.com
+  entities:
+  - device_id: ellen
+    ignore_availability: true
+    name: Ellen
+    track: true
+
+- cal_id: !secret@group.calendar.google.com
+  entities:
+  - device_id: gezin
+    ignore_availability: true
+    name: Gezin
+    track: true
+
+- cal_id: !secret@group.calendar.google.com
+  entities:
+  - device_id: friends_birthdays
+    ignore_availability: true
+    name: Friends' Birthdays
+    track: true
+
+- cal_id: l!secret@gmail.com
+  entities:
+  - device_id: leon
+    ignore_availability: true
+    name: "L\xE9on"
+    track: true
+
+- cal_id: !secret@group.calendar.google.com
+  entities:
+  - device_id: f1_race
+    ignore_availability: true
+    name: f1_race
+    track: true
+
+- cal_id: !secret@group.calendar.google.com
+  entities:
+  - device_id: formula_1_calendar_fp1
+    ignore_availability: true
+    name: Formula 1 - FP1
+    track: true
+    search: "FP1:"
+  - device_id: formula_1_calendar_fp2
+    ignore_availability: true
+    name: Formula 1 - FP2
+    track: true
+    search: "FP2:"
+  - device_id: formula_1_calendar_fp3
+    ignore_availability: true
+    name: Formula 1 - FP3
+    track: true
+    search: "FP3:"
+  - device_id: formula_1_calendar_qualifying
+    ignore_availability: true
+    name: Formula 1 - Qualifying
+    track: true
+    search: "Qualifying:"
+  - device_id: formula_1_calendar_race
+    ignore_availability: true
+    name: Formula 1 - Race
+    track: true
+    search: "Race:"
+
+- cal_id: !secret@group.calendar.google.com
+  entities:
+  - device_id: feestdagen_in_nederland
+    ignore_availability: true
+    name: Feestdagen in Nederland
+    track: true
+
+- cal_id: !secret@group.calendar.google.com
+  entities:
+  - device_id: vt2
+    ignore_availability: true
+    name: VT2
+    track: true
+
+- cal_id: !secret@group.calendar.google.com
+  entities:
+  - device_id: vt1
+    ignore_availability: true
+    name: VT1
+    track: true
+
+- cal_id: !secret@group.calendar.google.com
+  entities:
+  - device_id: vt3
+    ignore_availability: true
+    name: VT3
+    track: true
+
+- cal_id: !secret@group.calendar.google.com
+  entities:
+  - device_id: kwalificatie
+    ignore_availability: true
+    name: Kwalificatie
+    track: true

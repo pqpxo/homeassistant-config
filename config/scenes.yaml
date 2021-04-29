@@ -1,0 +1,1373 @@
+- id: '1611860768757'
+  name: 'Alarm: Turn red'
+  entities:
+    light.lightstrip:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 11.092
+      - 93.333
+      rgb_color:
+      - 255
+      - 60
+      - 17
+      xy_color:
+      - 0.675
+      - 0.316
+      effect: none
+      friendly_name: Lightstrip
+      icon: bha:led-strip
+      supported_features: 63
+      state: 'on'
+    light.booglamp:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 11.701
+      - 94.51
+      rgb_color:
+      - 255
+      - 60
+      - 13
+      xy_color:
+      - 0.676
+      - 0.316
+      effect: none
+      friendly_name: Booglamp
+      icon: mdi:desk-lamp
+      supported_features: 63
+      state: 'on'
+    light.lightstrip_outdoor:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 11.092
+      - 93.333
+      rgb_color:
+      - 255
+      - 60
+      - 17
+      xy_color:
+      - 0.675
+      - 0.316
+      effect: none
+      friendly_name: Lightstrip outdoor
+      icon: bha:led-strip
+      supported_features: 63
+      state: 'on'
+    light.tv_lamp:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 13.518
+      - 99.216
+      rgb_color:
+      - 255
+      - 59
+      - 1
+      xy_color:
+      - 0.679
+      - 0.317
+      effect: none
+      friendly_name: Tv lamp
+      supported_features: 63
+      state: 'on'
+    light.ambilight_links:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 13.228
+      - 99.608
+      rgb_color:
+      - 255
+      - 56
+      - 0
+      xy_color:
+      - 0.682
+      - 0.315
+      effect: none
+      friendly_name: Ambilight links
+      supported_features: 63
+      state: 'on'
+    light.ambilight_midden:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 252
+      hs_color:
+      - 13.228
+      - 99.608
+      rgb_color:
+      - 255
+      - 56
+      - 0
+      xy_color:
+      - 0.682
+      - 0.315
+      effect: none
+      friendly_name: Ambilight midden
+      supported_features: 63
+      state: 'on'
+    light.ambilight_rechts:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 13.228
+      - 99.608
+      rgb_color:
+      - 255
+      - 56
+      - 0
+      xy_color:
+      - 0.682
+      - 0.315
+      effect: none
+      friendly_name: Ambilight rechts
+      supported_features: 63
+      state: 'on'
+    light.achterdeur:
+      brightness: 255
+      friendly_name: Achterdeur
+      supported_features: 41
+      state: 'on'
+    light.vijver_lamp:
+      brightness: 255
+      friendly_name: Vijver lamp
+      supported_features: 41
+      state: 'on'
+    group.verlichting_keuken_groep:
+      entity_id:
+      - light.aanrecht_links
+      - light.aanrecht_rechts
+      - light.eettafel_links
+      - light.eettafel_rechts
+      order: 0
+      friendly_name: Verlichting Keuken Groep
+      state: 'on'
+- id: '1611860823516'
+  name: 'Alarm: Lights off'
+  entities:
+    light.lightstrip:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Lightstrip
+      icon: bha:led-strip
+      supported_features: 63
+      state: 'off'
+    light.lightstrip_outdoor:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Lightstrip outdoor
+      icon: bha:led-strip
+      supported_features: 63
+      state: 'off'
+    light.booglamp:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Booglamp
+      icon: mdi:desk-lamp
+      supported_features: 63
+      state: 'off'
+    light.tv_lamp:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Tv lamp
+      supported_features: 63
+      state: 'off'
+    light.ambilight_links:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Ambilight links
+      supported_features: 63
+      state: 'off'
+    light.ambilight_midden:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Ambilight midden
+      supported_features: 63
+      state: 'off'
+    light.ambilight_rechts:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Ambilight rechts
+      supported_features: 63
+      state: 'off'
+    light.vijver_lamp:
+      friendly_name: Vijver lamp
+      supported_features: 41
+      state: 'off'
+    light.achterdeur:
+      friendly_name: Achterdeur
+      supported_features: 41
+      state: 'off'
+    group.verlichting_keuken_groep:
+      entity_id:
+      - light.aanrecht_links
+      - light.aanrecht_rechts
+      - light.eettafel_links
+      - light.eettafel_rechts
+      order: 0
+      friendly_name: Verlichting Keuken Groep
+      state: 'off'
+- id: '1612279306001'
+  name: Avond 1
+  entities:
+    light.booglamp:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 87
+      color_temp: 453
+      effect: none
+      friendly_name: Booglamp
+      supported_features: 63
+      state: 'on'
+    light.plafonniere:
+      min_mireds: 153
+      max_mireds: 454
+      brightness: 66
+      color_temp: 419
+      friendly_name: Plafonniere
+      supported_features: 43
+      state: 'on'
+    light.tv_lamp:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 71
+      hs_color:
+      - 28.916
+      - 32.549
+      rgb_color:
+      - 255
+      - 212
+      - 172
+      xy_color:
+      - 0.41
+      - 0.366
+      effect: none
+      friendly_name: Tv lamp
+      supported_features: 63
+      state: 'on'
+    light.ambilight_links:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 232
+      hs_color:
+      - 204.935
+      - 30.196
+      rgb_color:
+      - 178
+      - 223
+      - 255
+      xy_color:
+      - 0.251
+      - 0.293
+      effect: none
+      friendly_name: Ambilight links
+      supported_features: 63
+      state: 'on'
+    light.ambilight_midden:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 206.512
+      - 33.725
+      rgb_color:
+      - 169
+      - 217
+      - 255
+      xy_color:
+      - 0.243
+      - 0.285
+      effect: none
+      friendly_name: Ambilight midden
+      supported_features: 63
+      state: 'on'
+    light.ambilight_rechts:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 253
+      hs_color:
+      - 219.775
+      - 34.902
+      rgb_color:
+      - 165
+      - 196
+      - 255
+      xy_color:
+      - 0.243
+      - 0.256
+      effect: none
+      friendly_name: Ambilight rechts
+      supported_features: 63
+      state: 'on'
+    light.lightstrip:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 89
+      hs_color:
+      - 37.778
+      - 52.941
+      rgb_color:
+      - 255
+      - 205
+      - 120
+      xy_color:
+      - 0.459
+      - 0.408
+      effect: none
+      friendly_name: Lightstrip
+      supported_features: 63
+      state: 'on'
+    switch.virtual_olielamp_ha:
+      friendly_name: Olielamp
+      unique_id: olielamp_ha
+      icon: hass:lightbulb
+      state: 'on'
+    light.eettafel:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 114
+      hs_color:
+      - 27.769
+      - 47.451
+      rgb_color:
+      - 255
+      - 190
+      - 133
+      xy_color:
+      - 0.463
+      - 0.378
+      effect: none
+      entity_id:
+      - light.eettafel_links
+      - light.eettafel_rechts
+      friendly_name: Eettafel
+      icon: mdi:lightbulb-group
+      supported_features: 63
+      state: 'on'
+    light.aanrecht:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 114
+      hs_color:
+      - 30.5
+      - 47.059
+      rgb_color:
+      - 255
+      - 195
+      - 134
+      xy_color:
+      - 0.457
+      - 0.383
+      effect: none
+      entity_id:
+      - light.aanrecht_rechts
+      - light.aanrecht_links
+      friendly_name: Aanrecht
+      icon: mdi:lightbulb-group
+      supported_features: 63
+      state: 'on'
+  icon: mdi:coffee
+- id: '1612466667110'
+  name: Nachtlampen aan
+  entities:
+    light.nachtlampje_fay:
+      min_mireds: 153
+      max_mireds: 454
+      brightness: 15
+      color_temp: 366
+      friendly_name: Nachtlampje Fay
+      supported_features: 43
+      state: 'on'
+    light.nachtlampje_nyk:
+      min_mireds: 153
+      max_mireds: 454
+      brightness: 15
+      color_temp: 366
+      friendly_name: Nachtlampje Nyk
+      supported_features: 43
+      state: 'on'
+    light.aqara_overloop_nachtlampje:
+      brightness: 33.15
+      hs_color:
+      - 29
+      - 87
+      rgb_color:
+      - 255
+      - 140
+      - 33
+      xy_color:
+      - 0.589
+      - 0.383
+      friendly_name: Nachtlampje overloop
+      supported_features: 17
+      state: 'on'
+  icon: mdi:weather-sunset-up
+- id: '1612467317274'
+  name: Goedemorgen
+  entities:
+    light.aanrecht_rechts:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 114
+      color_temp: 368
+      effect: none
+      friendly_name: Aanrecht rechts
+      supported_features: 63
+      state: 'on'
+    light.aanrecht_links:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 114
+      color_temp: 370
+      effect: none
+      friendly_name: Aanrecht links
+      supported_features: 63
+      state: 'on'
+    light.eettafel_links:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 114
+      hs_color:
+      - 30
+      - 43.137
+      rgb_color:
+      - 255
+      - 200
+      - 145
+      xy_color:
+      - 0.443
+      - 0.379
+      effect: none
+      friendly_name: Eettafel links
+      supported_features: 63
+      state: 'on'
+    light.eettafel_rechts:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 114
+      hs_color:
+      - 30
+      - 43.137
+      rgb_color:
+      - 255
+      - 200
+      - 145
+      xy_color:
+      - 0.443
+      - 0.379
+      effect: none
+      friendly_name: Eettafel rechts
+      supported_features: 63
+      state: 'on'
+    light.plafonniere:
+      min_mireds: 153
+      max_mireds: 454
+      brightness: 76
+      color_temp: 400
+      friendly_name: Plafonniere
+      supported_features: 43
+      state: 'on'
+    light.tv_lamp:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 71
+      color_temp: 353
+      effect: none
+      friendly_name: Tv lamp
+      supported_features: 63
+      state: 'on'
+    light.booglamp:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 76
+      color_temp: 365
+      effect: none
+      friendly_name: Booglamp
+      icon: mdi:desk-lamp
+      supported_features: 63
+      state: 'on'
+    light.lightstrip:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 89
+      color_temp: 355
+      effect: none
+      friendly_name: Lightstrip
+      icon: bha:led-strip
+      supported_features: 63
+      state: 'on'
+  icon: mdi:weather-sunset-up
+- id: '1612468730968'
+  name: Opstaan
+  entities:
+    light.bed_links:
+      min_mireds: 153
+      max_mireds: 454
+      brightness: 74
+      color_temp: 399
+      friendly_name: Bed links
+      supported_features: 43
+      state: 'on'
+    light.play_kai:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 115
+      color_temp: 418
+      effect: none
+      friendly_name: Play Kai
+      supported_features: 63
+      state: 'on'
+    light.nyk:
+      friendly_name: Nyk
+      supported_features: 41
+      state: 'off'
+    light.fay:
+      brightness: 115
+      friendly_name: Fay
+      supported_features: 41
+      state: 'on'
+    light.nachtlampje_fay:
+      min_mireds: 153
+      max_mireds: 454
+      friendly_name: Nachtlampje Fay
+      supported_features: 43
+      state: 'off'
+    light.nachtlampje_nyk:
+      min_mireds: 153
+      max_mireds: 454
+      friendly_name: Nachtlampje Nyk
+      supported_features: 43
+      state: 'off'
+    light.aqara_overloop_nachtlampje:
+      friendly_name: Nachtlampje overloop
+      supported_features: 17
+      state: 'off'
+    light.overloop_lamp:
+      min_mireds: 153
+      max_mireds: 454
+      brightness: 92
+      color_temp: 366
+      friendly_name: Overloop lamp
+      supported_features: 43
+      state: 'on'
+    switch.virtual_olielamp_ha:
+      friendly_name: Olielamp
+      unique_id: olielamp_ha
+      icon: hass:lightbulb
+      state: 'on'
+  icon: mdi:weather-sunset-up
+- id: '1612468980038'
+  name: Opstaan uit
+  entities:
+    light.play_kai:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Play Kai
+      supported_features: 63
+      state: 'off'
+    light.fay:
+      friendly_name: Fay
+      supported_features: 41
+      state: 'off'
+    light.nyk:
+      friendly_name: Nyk
+      supported_features: 41
+      state: 'off'
+    light.bed_links:
+      min_mireds: 153
+      max_mireds: 454
+      friendly_name: Bed links
+      supported_features: 43
+      state: 'off'
+    light.nachtlampje_fay:
+      min_mireds: 153
+      max_mireds: 454
+      friendly_name: Nachtlampje Fay
+      supported_features: 43
+      state: 'off'
+    light.nachtlampje_nyk:
+      min_mireds: 153
+      max_mireds: 454
+      friendly_name: Nachtlampje Nyk
+      supported_features: 43
+      state: 'off'
+    light.aqara_overloop_nachtlampje:
+      friendly_name: Nachtlampje overloop
+      supported_features: 17
+      state: 'off'
+  icon: mdi:lightbulb-group-off-outline
+- id: '1612469384037'
+  name: Avond
+  entities:
+    light.booglamp:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 51
+      hs_color:
+      - 29
+      - 47.059
+      rgb_color:
+      - 255
+      - 192
+      - 134
+      xy_color:
+      - 0.46
+      - 0.38
+      effect: none
+      friendly_name: Booglamp
+      icon: mdi:desk-lamp
+      supported_features: 63
+      state: 'on'
+    light.tv_lamp:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 51
+      hs_color:
+      - 35.273
+      - 64.706
+      rgb_color:
+      - 255
+      - 187
+      - 89
+      xy_color:
+      - 0.501
+      - 0.41
+      effect: none
+      friendly_name: Tv lamp
+      supported_features: 63
+      state: 'on'
+    light.lightstrip:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 51
+      hs_color:
+      - 37.778
+      - 52.941
+      rgb_color:
+      - 255
+      - 205
+      - 120
+      xy_color:
+      - 0.459
+      - 0.408
+      effect: none
+      friendly_name: Lightstrip
+      icon: bha:led-strip
+      supported_features: 63
+      state: 'on'
+    light.aanrecht_rechts:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 64
+      hs_color:
+      - 29
+      - 47.059
+      rgb_color:
+      - 255
+      - 192
+      - 134
+      xy_color:
+      - 0.46
+      - 0.38
+      effect: none
+      friendly_name: Aanrecht rechts
+      supported_features: 63
+      state: 'on'
+    light.aanrecht_links:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 64
+      hs_color:
+      - 29
+      - 47.059
+      rgb_color:
+      - 255
+      - 192
+      - 134
+      xy_color:
+      - 0.46
+      - 0.38
+      effect: none
+      friendly_name: Aanrecht links
+      supported_features: 63
+      state: 'on'
+    light.eettafel_links:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Eettafel links
+      supported_features: 63
+      state: 'off'
+    light.eettafel_rechts:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Eettafel rechts
+      supported_features: 63
+      state: 'off'
+    light.plafonniere:
+      min_mireds: 153
+      max_mireds: 454
+      friendly_name: Plafonniere
+      supported_features: 43
+      state: 'off'
+    light.achterdeur:
+      brightness: 81
+      friendly_name: Achterdeur
+      supported_features: 41
+      state: 'on'
+    light.vijver_lamp:
+      brightness: 20
+      friendly_name: Vijver lamp
+      supported_features: 41
+      state: 'on'
+    light.lightstrip_outdoor:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 20
+      hs_color:
+      - 29.5
+      - 47.059
+      rgb_color:
+      - 255
+      - 193
+      - 134
+      xy_color:
+      - 0.459
+      - 0.381
+      effect: none
+      friendly_name: Lightstrip outdoor
+      icon: bha:led-strip
+      supported_features: 63
+      state: 'on'
+    switch.virtual_olielamp_ha:
+      friendly_name: Olielamp
+      unique_id: olielamp_ha
+      icon: hass:lightbulb
+      state: 'on'
+    switch.virtual_openhaard_ha:
+      friendly_name: Openhaard
+      unique_id: openhaard_ha
+      icon: fas:fire-alt
+      state: 'on'
+    switch.overkapping_mss620_veranda:
+      friendly_name: Veranda
+      icon: mdi:power-socket-de
+      state: 'on'
+  icon: mdi:glass-cocktail
+- id: '1612470035457'
+  name: Porno
+  entities:
+    light.aanrecht:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - random
+      - colorloop
+      brightness: 255
+      hs_color:
+      - 0
+      - 0.392
+      rgb_color:
+      - 255
+      - 254
+      - 254
+      xy_color:
+      - 0.324
+      - 0.329
+      effect: none
+      entity_id:
+      - light.aanrecht_rechts
+      - light.aanrecht_links
+      friendly_name: aanrecht
+      icon: mdi:lightbulb-group
+      supported_features: 63
+      state: 'on'
+    light.eettafel:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - random
+      - colorloop
+      brightness: 114
+      hs_color:
+      - 0
+      - 0.392
+      rgb_color:
+      - 255
+      - 254
+      - 254
+      xy_color:
+      - 0.324
+      - 0.329
+      effect: none
+      entity_id:
+      - light.eettafel_links
+      - light.eettafel_rechts
+      friendly_name: eettafel
+      icon: mdi:lightbulb-group
+      supported_features: 63
+      state: 'on'
+    light.woonkamer_lights:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - random
+      - colorloop
+      brightness: 255
+      color_temp: 153
+      effect: none
+      entity_id:
+      - light.booglamp
+      - light.tv_lamp
+      - light.lightstrip
+      - light.plafonniere
+      - light.ambilight
+      friendly_name: Woonkamer lights
+      icon: mdi:lightbulb-group
+      supported_features: 63
+      state: 'on'
+    light.ambilight_links:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      color_temp: 153
+      effect: none
+      friendly_name: Ambilight links
+      supported_features: 63
+      state: 'on'
+    light.ambilight_midden:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      color_temp: 153
+      effect: none
+      friendly_name: Ambilight midden
+      supported_features: 63
+      state: 'on'
+    light.ambilight_rechts:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      color_temp: 153
+      effect: none
+      friendly_name: Ambilight rechts
+      supported_features: 63
+      state: 'on'
+  icon: mdi:party-popper
+- id: '1612538122608'
+  name: Alles uit
+  entities:
+    group.verlichting_badkamer_groep:
+      entity_id:
+      - light.badkamer_lamp
+      - light.spiegel
+      order: 2
+      friendly_name: Verlichting Badkamer Groep
+      state: 'off'
+    group.verlichting_zolder_groep:
+      entity_id:
+      - light.was_lampen
+      - light.play_zolder
+      order: 10
+      friendly_name: Verlichting Zolder Groep
+      state: 'off'
+    group.verlichting_keuken_groep:
+      entity_id:
+      - light.aanrecht
+      - light.eettafel
+      order: 0
+      friendly_name: Verlichting Keuken Groep
+      state: 'off'
+    group.verlichting_tuin_groep:
+      entity_id:
+      - light.achterdeur
+      - light.lightstrip_outdoor
+      - switch.overkapping_mss620_veranda
+      - light.vijver_lamp
+      order: 11
+      friendly_name: Verlichting Tuin Groep
+      state: 'off'
+    light.overloop_lamp:
+      min_mireds: 153
+      max_mireds: 454
+      supported_color_modes:
+      - color_temp
+      friendly_name: Overloop lamp
+      supported_features: 43
+      state: 'off'
+    light.tv_lamp:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Tv lamp
+      supported_features: 63
+      state: 'off'
+    light.plafonniere:
+      min_mireds: 153
+      max_mireds: 454
+      supported_color_modes:
+      - color_temp
+      friendly_name: Plafonniere
+      supported_features: 43
+      state: 'off'
+    light.booglamp:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Booglamp
+      supported_features: 63
+      state: 'off'
+    light.lightstrip:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Lightstrip
+      icon: bha:led-strip
+      supported_features: 63
+      state: 'off'
+    light.ambilight_links:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Ambilight links
+      supported_features: 63
+      state: 'off'
+    light.ambilight_midden:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Ambilight midden
+      supported_features: 63
+      state: 'off'
+    light.ambilight_rechts:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Ambilight rechts
+      supported_features: 63
+      state: 'off'
+    light.fay:
+      supported_color_modes:
+      - brightness
+      friendly_name: Fay
+      supported_features: 41
+      state: 'off'
+    light.nyk:
+      supported_color_modes:
+      - brightness
+      friendly_name: Nyk
+      supported_features: 41
+      state: 'off'
+    light.play_kai:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Play Kai
+      supported_features: 63
+      state: 'off'
+    light.wc_lamp:
+      min_mireds: 153
+      max_mireds: 454
+      supported_color_modes:
+      - color_temp
+      friendly_name: Wc lamp
+      supported_features: 43
+      state: 'off'
+    light.bed_lampen:
+      min_mireds: 153
+      max_mireds: 454
+      supported_color_modes:
+      - color_temp
+      entity_id:
+      - light.bed_links
+      - light.bed_rechts
+      friendly_name: Bed lampen
+      icon: mdi:lightbulb-group
+      supported_features: 43
+      state: 'off'
+    switch.virtual_openhaard_ha:
+      friendly_name: Openhaard
+      unique_id: openhaard_ha
+      icon: fas:fire-alt
+      state: 'off'
+    switch.virtual_olielamp_ha:
+      friendly_name: Olielamp
+      unique_id: olielamp_ha
+      icon: hass:lightbulb
+      state: 'off'
+    group.switch_tuin_groep:
+      entity_id:
+      - switch.overkapping_mss620_heather
+      - switch.virtual_tuinslang_ha
+      order: 21
+      friendly_name: Switch Tuin Groep
+      state: 'off'
+    group.switch_master_bedroom_groep:
+      entity_id:
+      - switch.virtual_tv_mb_ha
+      order: 17
+      friendly_name: Switch Master Bedroom Groep
+      state: 'off'
+  icon: ios:moon-zzz
+- id: '1615580725265'
+  name: Veranda aan
+  entities:
+    switch.overkapping_mss620_main_channel:
+      friendly_name: Overkapping (mss620) - Main channel
+      icon: mdi:power-socket-de
+      state: 'off'
+    switch.overkapping_mss620_heather:
+      friendly_name: Heater
+      icon: mdi:power-socket-de
+      state: 'off'
+    switch.overkapping_mss620_veranda:
+      friendly_name: Veranda
+      icon: mdi:power-socket-de
+      state: 'on'
+    light.vijver_lamp:
+      brightness: 20
+      friendly_name: Vijver lamp
+      supported_features: 41
+      state: 'on'
+    light.lightstrip_outdoor:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 20
+      hs_color:
+      - 28.76
+      - 47.451
+      rgb_color:
+      - 255
+      - 191
+      - 133
+      xy_color:
+      - 0.462
+      - 0.379
+      effect: none
+      friendly_name: Lightstrip outdoor
+      supported_features: 63
+      state: 'on'
+    light.achterdeur:
+      brightness: 81
+      friendly_name: Achterdeur
+      supported_features: 41
+      state: 'on'
+- id: '1619358124878'
+  name: Power off
+  entities:
+    group.switch_kantoor_groep:
+      entity_id:
+      - switch.kantoor
+      order: 19
+      friendly_name: Switch Kantoor Groep
+      state: 'off'
+    group.switch_master_bedroom_groep:
+      entity_id:
+      - switch.virtual_tv_mb_ha
+      order: 17
+      friendly_name: Switch Master Bedroom Groep
+      state: 'off'
+    group.switch_slaapkamer_kai_groep:
+      entity_id:
+      - switch.tv_kai
+      order: 18
+      friendly_name: Switch Slaapkamer Kai Groep
+      icon: mdi:power-socket-de
+      state: 'off'
+    group.switch_tuin_groep:
+      entity_id:
+      - switch.overkapping_mss620_heather
+      - switch.virtual_tuinslang_ha
+      order: 21
+      friendly_name: Switch Tuin Groep
+      state: 'off'
+    group.switch_woonkamer_groep:
+      entity_id:
+      - switch.virtual_tv_meubel
+      - switch.ps4_controllers
+      - switch.koogeek_1
+      - switch.oplader
+      - switch.rituals
+      - media_player.sync_box
+      order: 16
+      friendly_name: Switch Woonkamer Groep
+      state: 'off'
+    group.switch_zolder_groep:
+      entity_id:
+      - sensor.wasmachine
+      order: 20
+      friendly_name: Switch Zolder Groep
+      state: 'off'
+    light.zolder_power:
+      supported_color_modes:
+      - onoff
+      friendly_name: Zolder
+      icon: mdi:power-socket-de
+      supported_features: 40
+      state: 'off'
+    group.verlichting_badkamer_groep:
+      entity_id:
+      - light.badkamer_lamp
+      - light.spiegel
+      order: 2
+      friendly_name: Verlichting Badkamer Groep
+      state: 'off'
+    group.verlichting_kantoor_groep:
+      entity_id:
+      - switch.bureau
+      - light.zolder_lamp
+      order: 9
+      friendly_name: Verlichting Kantoor Groep
+      state: 'off'
+    group.verlichting_keuken_groep:
+      entity_id:
+      - light.aanrecht
+      - light.eettafel
+      order: 0
+      friendly_name: Verlichting Keuken Groep
+      state: 'off'
+    group.verlichting_master_bedroom_groep:
+      entity_id:
+      - light.bed_links
+      - light.bed_rechts
+      - light.lamp_mb
+      order: 4
+      friendly_name: Verlichting Master Bedroom Groep
+      state: 'off'
+    group.verlichting_overloop_groep:
+      entity_id:
+      - light.aqara_overloop_nachtlampje
+      - light.overloop_lamp
+      order: 3
+      friendly_name: Verlichting Overloop Groep
+      state: 'off'
+    group.verlichting_slaapkamer_eliza_groep:
+      entity_id:
+      - light.eliza
+      - light.play_eliza
+      order: 8
+      friendly_name: Verlichting Slaapkamer Eliza Groep
+      state: 'off'
+    group.verlichting_slaapkamer_fay_groep:
+      entity_id:
+      - light.fay
+      - light.nachtlampje_fay
+      order: 5
+      friendly_name: Verlichting Slaapkamer Fay Groep
+      icon: mdi:lightbulb-group
+      state: 'off'
+    group.verlichting_slaapkamer_kai_groep:
+      entity_id:
+      - switch.bol_lamp_kai
+      - light.play_kai
+      order: 7
+      friendly_name: Verlichting Slaapkamer Kai Groep
+      icon: mdi:lightbulb-group
+      state: 'off'
+    group.verlichting_slaapkamer_nyk_groep:
+      entity_id:
+      - light.nyk
+      - light.nachtlampje_nyk
+      order: 6
+      friendly_name: Verlichting Slaapkamer Nyk Groep
+      icon: mdi:lightbulb-group
+      state: 'off'
+    group.verlichting_tuin_groep:
+      entity_id:
+      - light.achterdeur
+      - light.lightstrip_outdoor
+      - switch.overkapping_mss620_veranda
+      - light.vijver_lamp
+      order: 11
+      friendly_name: Verlichting Tuin Groep
+      state: 'off'
+    light.entree:
+      supported_color_modes:
+      - brightness
+      friendly_name: Entree lamp
+      supported_features: 41
+      state: 'off'
+    light.overloop_lamp:
+      min_mireds: 153
+      max_mireds: 454
+      supported_color_modes:
+      - color_temp
+      friendly_name: Overloop lamp
+      supported_features: 43
+      state: 'off'
+    switch.virtual_tv_meubel:
+      friendly_name: TV Meubel
+      unique_id: tv_meubel
+      icon: mdi:power-socket-de
+      state: 'off'
+  icon: ios:power

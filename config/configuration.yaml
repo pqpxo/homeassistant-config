@@ -1,0 +1,96 @@
+#-
+#                   __ _                       _   _
+#   ___ ___  _ __  / _(_) __ _ _   _ _ __ __ _| |_(_) ___  _ __
+#  / __/ _ \| '_ \| |_| |/ _` | | | | '__/ _` | __| |/ _ \| '_ \
+# | (_| (_) | | | |  _| | (_| | |_| | | | (_| | |_| | (_) | | | |
+#  \___\___/|_| |_|_| |_|\__, |\__,_|_|  \__,_|\__|_|\___/|_| |_|
+#                        |___/
+#
+
+
+# Core Configuration
+default_config:
+frontend:
+  themes: !include_dir_merge_named themes/
+
+  
+discovery:
+
+alarm_control_panel: !include includes/alarm.yaml
+
+homeassistant:
+  customize: !include customize.yaml
+
+
+browser_mod:
+
+recorder:
+
+sun:
+
+# Inputs
+input_datetime: !include includes/input_datetimes.yaml
+input_number: !include includes/input_numbers.yaml
+
+# Logging and history
+
+
+# Managed via UI
+scene: !include scenes.yaml
+automation: !include automations.yaml
+automation split: !include_dir_merge_list includes/automation/
+script: !include scripts.yaml
+
+
+#overig
+group: !include includes/groups.yaml
+light: !include includes/lights.yaml
+media_player: !include includes/media_players.yaml
+utility_meter: !include includes/utility_meter.yaml
+notify: !include includes/notify.yaml
+sensor: !include_dir_merge_list includes/sensors/
+switch: !include includes/switch.yaml  
+binary_sensor: !include includes/binary_sensors.yaml
+webostv: !include includes/webostv.yaml
+weather: !include includes/weather.yaml
+camera: !include includes/camera.yaml
+spotify: !include includes/spotify.yaml 
+spotcast: !include includes/spotcast.yaml
+tts: !include includes/tts.yaml
+withings: !include includes/withings.yaml
+homekit: !include includes/homekit.yaml
+google: !include includes/calendar.yaml
+ziggonext: !include includes/ziggonext.yaml
+nextcloud: !include includes/nextcloud.yaml
+
+
+
+
+input_select:
+  camera:
+    name: select camera
+    options:
+      - camera.logi_circle_kai
+      - camera.logi_circle_fay
+      - camera.logi_circle_nyk
+      - camera.logi_circle_zolder
+      - camera.voordeur
+      - camera.achterdeur
+    icon: hass:cctv
+  
+
+
+
+  
+
+
+
+
+  
+
+  
+
+
+
+
+

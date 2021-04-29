@@ -1,0 +1,10 @@
+resources:
+  - url: /local/buien-rain-card.js
+    type: module
+  
+  - url: /hacsfiles/Homekit-panel-card/homekit-panel-card.js
+    type: module
+    
+  - url: /local/postnl-card.js
+    type: module
+    

@@ -1,0 +1,39 @@
+check_config:
+  sequence: []
+  alias: Check Configuration
+'1611862460702':
+  alias: 'Alarm: Flash Lights'
+  sequence:
+  - condition: state
+    entity_id: alarm_control_panel.ha_alarm
+    state: armed_away
+  - scene: scene.alarm_turn_red
+  - wait_template: ''
+    timeout: 00:00:02
+    continue_on_timeout: true
+  - scene: scene.alarm_lights_off
+  - service: script.turn_on
+    data: {}
+    entity_id: script.alarm_flash_loop
+  mode: single
+alarm_flash_loop:
+  alias: 'Alarm: Flash loop'
+  sequence:
+  - wait_template: ''
+    timeout: 00:00:02
+    continue_on_timeout: true
+  - service: script.turn_on
+    data: {}
+    entity_id: script.1611862460702
+  mode: single
+cameracast:
+  alias: cameracast
+  sequence:
+  - condition: state
+    entity_id: input_select.camera
+    state: ''
+    attribute: options
+  - service: camera.play_stream
+    data:
+      media_player: media_player.chromecast_woonkamer
+  mode: single
