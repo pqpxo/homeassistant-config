@@ -1,0 +1,25 @@
+- type: vertical-stack
+  cards:
+    - type: entities
+      entities:
+        - entity: sensor.ipad_pro_129_van_leon_battery_level
+          name: iPad
+          secondary_info: last-updated
+        - entity: sensor.iphone_12_pro_van_leon_battery_state
+          name: iPhone
+          secondary_info: last-updated
+        - entity: sensor.apple_watch_van_leon_battery_state
+          name: Apple Watch
+          secondary_info: last-updated
+        - entity: sensor.macbook_pro_battery_state
+          name: Macbook Pro
+          secondary_info: last-updated
+      show_header_toggle: true
+      state_color: true
+    - type: glance
+      entities:
+        - entity: sensor.iphone_12_pro_van_leon_ssid
+        - entity: sensor.iphone_12_pro_van_leon_steps
+        - entity: sensor.iphone_12_pro_van_leon_storage
+      state_color: true
+

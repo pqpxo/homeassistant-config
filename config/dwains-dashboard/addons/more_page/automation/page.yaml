@@ -1,0 +1,63 @@
+## Created by LRvdLinden
+## More-page add-on: Automation
+## Version: 1.0.2
+## https://github.com/LRvdLinden
+
+- type: custom:dwains-flexbox-card
+  items_classes: 'col-xs-12'
+  cards: 
+    - type: custom:dwains-flexbox-card
+      items_classes: 'col-xs-12 col-sm-6 col-sm-6'
+      cards:
+        - type: custom:dwains-flexbox-card
+          items_classes: 'col-xs-12 col-md-12'
+          cards:
+            - type: markdown
+              content: >
+                ![Image](https://www.iotworldtoday.com/files/2019/11/GettyImages-1097894826-724x432.jpg)
+        - type: custom:dwains-flexbox-card
+          items_classes: 'col-xs-12 col-md-12'
+          cards:
+            - type: 'custom:fold-entity-row'
+              head: group.automation_light_groep
+              entities:
+                - automation.opstaan
+                - automation.opstaan_uit
+                - automation.goedemorgen
+                - automation.nachtlampen_aan
+                - automation.scene_avond1_2
+                - automation.veranda_aan
+                - automation.kantoor_aan
+            - type: 'custom:fold-entity-row'
+              head: group.deur_notify_groep
+              entities:
+                - automation.achterdeur_open_2
+                - automation.voordeur_open
+            - type: 'custom:fold-entity-row'
+              head: group.beweging_notify_groep
+              entities:
+                - automation.beweging_slaapkamer_kai
+                - automation.beweging_slaapkamer_fay
+                - automation.beweging_slaapkamer_nyk
+                - automation.beweging_zolder
+                
+            - type: 'custom:scheduler-card'
+              include:
+                - alarm_control_panel
+                - climate
+                - group
+                - light
+                - media_player
+                - person
+                - scene
+                - switch
+              title: Scheduler
+            - type: 'custom:search-card'
+              entity_id:
+                '1': null
+              max_results: 15
+              name: 'Toggle {1}'
+              service: homeassistant.toggle
+              service_data: null
+              icon: 'mdi:database-search'
+

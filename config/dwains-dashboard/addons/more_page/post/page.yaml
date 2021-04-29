@@ -1,0 +1,63 @@
+- type: vertical-stack
+  cards:
+    - type: markdown
+      content: '## <ha-icon icon="mdi:truck-delivery"></ha-icon> Packages In Transit'
+      theme: bamva_headlines
+    - type: markdown
+      content: >
+        ## Number of packages
+
+        * **{{ states('sensor.seventeentrack_packages_in_transit') }}** packages
+
+
+        ## Package details
+
+        {% if states('sensor.seventeentrack_packages_in_transit') | int > 0 -%}
+
+        {% for state in
+        states.sensor.seventeentrack_packages_in_transit.attributes.packages -%}
+
+        * **{{state.tracking_number}}**
+         * {{state.friendly_name}}
+         * {{state.info_text}}
+        {{"\n"}}
+
+        {%- endfor %}
+
+        {%- else -%}
+
+        * **None**
+
+        {%- endif %}
+    - type: markdown
+      content: >-
+        ## <ha-icon icon="mdi:package-variant-closed"></ha-icon> Packages
+        Delivered
+      theme: bamva_headlines
+    - type: markdown
+      content: >
+        ## Number of packages
+
+        * **{{ states('sensor.seventeentrack_packages_delivered') }}** packages
+
+
+        ## Package details
+
+        {% if states('sensor.seventeentrack_packages_delivered') | int > 0 -%}
+
+        {% for state in
+        states.sensor.seventeentrack_packages_delivered.attributes.packages -%}
+
+        * **{{state.tracking_number}}**
+         * {{state.friendly_name}}
+         * {{state.info_text}}
+        {{"\n"}}
+
+        {%- endfor %}
+
+        {%- else -%}
+
+        * **None**
+
+        {%- endif %}
+

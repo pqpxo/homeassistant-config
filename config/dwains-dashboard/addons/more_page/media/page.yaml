@@ -1,0 +1,218 @@
+## Created by LRvdLinden
+## More-page add-on: Media Control
+## Version: 1.0.1
+## https://github.com/LRvdLinden
+
+- type: custom:dwains-flexbox-card
+  items_classes: 'col-xs-12 col-sm-6 col-sm-6 col-md-3'
+  cards:
+#Speakers  
+      - cards:
+          - name: Speakers
+            styles:
+              card:
+                - text-transform: uppercase
+                - color: 'var(--dwains-theme-accent)'
+                - font-size: 125%
+                - border-radius: 0%
+                - font-weight: 100
+                - letter-spacing: 10px
+            type: 'custom:button-card'
+          - cards: 
+            type: 'custom:mini-media-player'
+            entity: media_player.sonos
+            hide:
+              power_state: false
+              source: true
+              volume: false
+            icon: 'mdi:speaker'
+            artwork: material
+            group: false
+          - cards: 
+            type: 'custom:mini-media-player'
+            entity: media_player.connect
+            hide:
+              power_state: false
+              source: true
+              volume: false
+            icon: 'mdi:speaker'
+            artwork: material
+            group: false
+          - cards: 
+            type: 'custom:mini-media-player'
+            entity: media_player.google_home
+            hide:
+              power_state: false
+              source: true
+              volume: false
+            icon: 'mdi:google-home'
+            artwork: material
+            group: false
+            volume_stateless: false
+          - cards: 
+            type: 'custom:mini-media-player'
+            entity: media_player.google_home_hub
+            hide:
+              power_state: false
+              source: true
+              volume: false
+            icon: 'mdi:google-home'
+            artwork: material
+            group: false
+            volume_stateless: false
+          - cards: 
+            type: 'custom:mini-media-player'
+            entity: media_player.home_mini_master_bedroom
+            hide:
+              power_state: false
+              source: true
+              volume: false
+            icon: 'mdi:google-home'
+            artwork: material
+            group: false
+            volume_stateless: false
+          - cards: 
+            type: 'custom:mini-media-player'
+            entity: media_player.home_mini_kai
+            hide:
+              power_state: false
+              source: true
+              volume: false
+            icon: 'mdi:google-home'
+            artwork: material
+            group: false
+            volume_stateless: false
+        type: vertical-stack
+
+
+
+
+#TV's
+      - cards:
+          - name: TV's
+            styles:
+              card:
+                - text-transform: uppercase
+                - color: 'var(--dwains-theme-accent)'
+                - font-size: 125%
+                - border-radius: 0%
+                - font-weight: 100
+                - letter-spacing: 10px
+            type: 'custom:button-card'
+          - cards: 
+            type: 'custom:mini-media-player'
+            entity: media_player.tv_woonkamer
+            hide:
+              power_state: false
+              source: true
+              volume: false
+            icon: 'fas:tv'
+            artwork: material
+            group: false
+            volume_stateless: true  
+            info: scroll
+          - cards: 
+            type: 'custom:mini-media-player'
+            entity: media_player.tv_kai
+            hide:
+              power_state: false
+              source: true
+              volume: false
+            icon: 'fas:tv'
+            artwork: material
+            group: false
+            volume_stateless: true  
+            info: scroll
+          - cards: 
+            type: 'custom:mini-media-player'
+            entity: media_player.apple_tv_woonkamer
+            hide:
+              power_state: false
+              source: true
+              volume: false
+            icon: 'fas:tv'
+            artwork: material
+            group: false
+            volume_stateless: true  
+            info: scroll
+          - cards: 
+            type: 'custom:mini-media-player'
+            entity: media_player.apple_tv_master_bedroom
+            hide:
+              power_state: false
+              source: true
+              volume: false
+            icon: 'fas:tv'
+            artwork: material
+            group: false
+            volume_stateless: true  
+            info: scroll
+          - cards: 
+            type: 'custom:mini-media-player'
+            entity: media_player.apple_tv_kids
+            hide:
+              power_state: false
+              source: true
+              volume: false
+            icon: 'fas:tv'
+            artwork: material
+            group: false
+            volume_stateless: true  
+            info: scroll
+          - cards: 
+            type: 'custom:mini-media-player'
+            entity: media_player.sync_box
+            hide:
+              power_state: false
+              source: true
+              volume: false
+            icon: 'fas:tv'
+            artwork: material
+            group: false
+            volume_stateless: true  
+            info: short
+        type: vertical-stack
+        
+        
+#Muziek
+      - cards:
+          - name: Spotify
+            styles:
+              card:
+                - text-transform: uppercase
+                - color: 'var(--dwains-theme-accent)'
+                - font-size: 125%
+                - border-radius: 0%
+                - font-weight: 100
+                - letter-spacing: 10px
+            type: 'custom:button-card'
+          - cards: 
+            type: 'custom:mini-media-player'
+            entity: media_player.spotify_leon_van_der_linden
+            source: full
+            sound_mode: full
+            info: scroll
+            volume_stateless: false
+            artwork: full-cover
+          - cards:
+            type: 'custom:spotify-card'
+        type: vertical-stack
+        
+        
+#Tv Guide
+      - cards:
+          - name: Tv Gids
+            styles:
+              card:
+                - text-transform: uppercase
+                - color: 'var(--dwains-theme-accent)'
+                - font-size: 125%
+                - border-radius: 0%
+                - font-weight: 100
+                - letter-spacing: 10px
+            type: 'custom:button-card'
+          - type: 'iframe'
+            url: 'https://www.tvgids24.nl/gadget'
+            aspect_ratio: 130%
+        type: vertical-stack          
+      

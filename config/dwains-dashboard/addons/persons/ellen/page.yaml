@@ -1,0 +1,20 @@
+- type: vertical-stack
+  cards:
+    - type: entities
+      entities:
+        - entity: sensor.ipad_van_ellen_battery_state
+          name: iPad
+          secondary_info: last-updated
+        - entity: sensor.iphone_van_ellen_battery_state
+          name: iPhone
+          secondary_info: last-updated
+        - entity: sensor.apple_watch_van_ellen_battery_state
+          name: Apple Watch
+          secondary_info: last-updated
+      state_color: true
+    - type: glance
+      entities:
+        - entity: sensor.iphone_van_ellen_ssid
+        - entity: sensor.iphone_van_ellen_steps
+        - entity: sensor.iphone_van_ellen_storage
+      state_color: true

@@ -1,0 +1,312 @@
+- type: custom:dwains-flexbox-card
+  items_classes: 'col-xs-12 col-sm-6 col-sm-6 col-md-3'
+  cards:
+
+## WOONKAMER
+      - cards:
+          - name: Woonkamer
+            styles:
+              card:
+                - text-transform: uppercase
+                - color: 'var(--dwains-theme-accent)'
+                - font-size: 125%
+                - border-radius: 0%
+                - font-weight: 100
+                - letter-spacing: 10px
+            type: 'custom:button-card'
+          - cards:
+              - entities:
+                  - entity: sensor.netatmo_netatmo_huis_netatmo_woonkamer_temperature
+                    name: Temperatuur (24h)
+                    color: 'var(--dwains-theme-accent)'
+                    show_fill: true
+                  - entity: sensor.20_sensor
+                    color: green
+                    show_fill: false
+                font_size: 80
+                hours_to_show: 24
+                line_width: 2
+                hour24: true
+                points_per_hour: 2
+                decimals: 0
+                show:
+                  animate: true
+#                  fill: true
+                  icon: false
+                  labels: false
+                  legend: false
+                  name: false
+                  graph: line
+                  extrema: true
+                  average: true     
+                theme: ios-dark-mode-blue-red
+                type: 'custom:mini-graph-card'
+            type: horizontal-stack
+   #co2 woonkamer       
+          - cards:
+            type: 'custom:mini-graph-card'
+            entities:
+              - sensor.netatmo_netatmo_huis_netatmo_woonkamer_co2
+            show:
+              labels: true
+              animate: true
+              extrema: true
+              average: true
+              fill: false
+            color_thresholds:
+              - value: 700
+                color: '#f39c12'
+              - value: 250
+                color: '#3fd300'
+              - value: 1000
+                color: '#c0392b'
+            hours_to_show: 36
+            refresh_interval: 10   
+            
+   #humidity woonkamer        
+          - cards:
+            type: 'custom:mini-graph-card'
+            entities:
+              - sensor.netatmo_netatmo_huis_netatmo_woonkamer_humidity
+            show:
+              labels: true
+              animate: true
+              extrema: true
+              average: true
+              fill: false
+            color_thresholds:
+              - value: 10
+                color: '#f39c12'
+              - value: 50
+                color: '#3fd300'
+              - value: 60
+                color: '#c0392b'
+            hours_to_show: 36
+            refresh_interval: 10   
+
+        type: vertical-stack
+
+## MASTER BEDROOM
+      - cards:
+          - name: Master Bedroom
+            styles:
+              card:
+                - text-transform: uppercase
+                - color: 'var(--dwains-theme-accent)'
+                - font-size: 125%
+                - border-radius: 0%
+                - font-weight: 100
+                - letter-spacing: 10px
+            type: 'custom:button-card'
+          - cards:
+            type: 'custom:mini-graph-card'
+            entities:
+              - sensor.netatmo_netatmo_huis_netatmo_woonkamer_netatmo_master_bedroom_temperature
+            show:
+              labels: true
+              extrema: true
+              exctrema: true
+              average: true
+              fill: false
+            color_thresholds:
+              - value: 14
+                color: '#f39c12'
+              - value: 18
+                color: '#3fd300'
+              - value: 20
+                color: '#c0392b'
+            hours_to_show: 36
+            refresh_interval: 10       
+   #co2 MASTER BEDROOM       
+          - cards:
+            type: 'custom:mini-graph-card'
+            entities:
+              - sensor.netatmo_netatmo_huis_netatmo_woonkamer_netatmo_master_bedroom_co2
+            show:
+              labels: true
+              animate: true
+              extrema: true
+              average: true
+              fill: false
+            color_thresholds:
+              - value: 700
+                color: '#f39c12'
+              - value: 250
+                color: '#3fd300'
+              - value: 1000
+                color: '#c0392b'
+            hours_to_show: 36
+            refresh_interval: 10   
+            
+   #humidity MASTER BEDROOM     
+          - cards:
+            type: 'custom:mini-graph-card'
+            entities:
+              - sensor.netatmo_netatmo_huis_netatmo_woonkamer_netatmo_master_bedroom_humidity
+            show:
+              labels: true
+              animate: true
+              extrema: true
+              average: true
+              fill: false
+            color_thresholds:
+              - value: 10
+                color: '#f39c12'
+              - value: 50
+                color: '#3fd300'
+              - value: 60
+                color: '#c0392b'
+            hours_to_show: 36
+            refresh_interval: 10   
+
+        type: vertical-stack
+
+## ZOLDER
+      - cards:
+          - name: Zolder
+            styles:
+              card:
+                - text-transform: uppercase
+                - color: 'var(--dwains-theme-accent)'
+                - font-size: 125%
+                - border-radius: 0%
+                - font-weight: 100
+                - letter-spacing: 10px
+            type: 'custom:button-card'
+          - cards:
+            type: 'custom:mini-graph-card'
+            entities:
+              - sensor.netatmo_netatmo_huis_netatmo_woonkamer_netatmo_zolder_temperature
+            show:
+              labels: true
+              animate: true
+              extrema: true
+              average: true
+              fill: false
+            color_thresholds:
+              - value: 14
+                color: '#f39c12'
+              - value: 18
+                color: '#3fd300'
+              - value: 20
+                color: '#c0392b'
+            hours_to_show: 36
+            refresh_interval: 10       
+   #co2 ZOLDER    
+          - cards:
+            type: 'custom:mini-graph-card'
+            entities:
+              - sensor.netatmo_netatmo_huis_netatmo_woonkamer_netatmo_zolder_co2
+            show:
+              labels: true
+              animate: true
+              extrema: true
+              average: true
+              fill: false
+            color_thresholds:
+              - value: 700
+                color: '#f39c12'
+              - value: 250
+                color: '#3fd300'
+              - value: 1000
+                color: '#c0392b'
+            hours_to_show: 36
+            refresh_interval: 10   
+            
+   #humidity ZOLDER       
+          - cards:
+            type: 'custom:mini-graph-card'
+            entities:
+              - sensor.netatmo_netatmo_huis_netatmo_woonkamer_netatmo_zolder_humidity
+            show:
+              labels: true
+              animate: true
+              extrema: true
+              average: true
+              fill: false
+            color_thresholds:
+              - value: 10
+                color: '#f39c12'
+              - value: 50
+                color: '#3fd300'
+              - value: 60
+                color: '#c0392b'
+            hours_to_show: 36
+            refresh_interval: 10   
+
+        type: vertical-stack
+        
+## BUITEN
+      - cards:
+          - name: Buiten
+            styles:
+              card:
+                - text-transform: uppercase
+                - color: 'var(--dwains-theme-accent)'
+                - font-size: 125%
+                - border-radius: 0%
+                - font-weight: 100
+                - letter-spacing: 10px
+            type: 'custom:button-card'
+          - cards:
+            type: 'custom:mini-graph-card'
+            entities:
+              - sensor.netatmo_netatmo_huis_netatmo_woonkamer_netatmo_tuin_temperature
+            show:
+              labels: true
+              animate: true
+              extrema: true
+              average: true
+              fill: false
+            color_thresholds:
+              - value: 1
+                color: '#f39c12'
+              - value: 15
+                color: '#3fd300'
+              - value: 26
+                color: '#c0392b'
+            hours_to_show: 36
+            refresh_interval: 10      
+            
+   #co2 BUITEN     
+          - cards:
+            type: 'custom:mini-graph-card'
+            entities:
+              - sensor.co2_intensity_52_21_5_97
+            show:
+              labels: true
+              animate: true
+              extrema: true
+              average: true
+              fill: false
+            color_thresholds:
+              - value: 700
+                color: '#f39c12'
+              - value: 250
+                color: '#3fd300'
+              - value: 1000
+                color: '#c0392b'
+            hours_to_show: 36
+            refresh_interval: 10               
+   #humidity BUITEN       
+          - cards:
+            type: 'custom:mini-graph-card'
+            entities:
+              - sensor.netatmo_netatmo_huis_netatmo_woonkamer_netatmo_tuin_humidity
+            show:
+              labels: true
+              animate: true
+              extrema: true
+              average: true
+              fill: false
+            color_thresholds:
+              - value: 10
+                color: '#f39c12'
+              - value: 50
+                color: '#3fd300'
+              - value: 60
+                color: '#c0392b'
+            hours_to_show: 36
+            refresh_interval: 10   
+
+        type: vertical-stack

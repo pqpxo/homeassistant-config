@@ -1,0 +1,143 @@
+## Created by Mobiledude
+## More-page add-on: Power
+## Version: 1.0.0
+
+- type: custom:dwains-flexbox-card
+  items_classes: 'col-xs-12 col-sm-6 col-sm-6 col-md-3'
+  cards:
+## WOONKAMER
+      - cards:
+          - name: Google WiFi
+            styles:
+              card:
+                - text-transform: uppercase
+                - color: 'var(--dwains-theme-accent)'
+                - font-size: 125%
+                - border-radius: 0%
+                - font-weight: 100
+                - letter-spacing: 10px
+            type: 'custom:button-card'
+          - cards:
+            type: 'custom:mini-graph-card'
+            name: Google WiFi
+            icon: 'mdi:download'
+            entities:
+              - sensor.google_wifi_system_aaaaabmjsje_download_speed
+              - sensor.google_wifi_system_aaaaabmjsje_upload_speed
+          - cards:
+            type: 'custom:mini-graph-card'
+            name: Current WiFi Traffic
+            icon: 'mdi:download'
+            entities:
+              - sensor.google_wifi_system_aaaaabmjsje_download_traffic
+              - sensor.google_wifi_system_aaaaabmjsje_upload_traffic
+          - entities:
+              - entity: sensor.google_wifi_new_version
+                name: Google WiFi new version
+              - entity: sensor.google_wifi_current_version
+                name: Google WiFi current version
+              - entity: sensor.google_wifi_last_restart
+                name: Last restart
+              - entity: sensor.google_wifi_uptime
+                name: Google WiFi uptime
+              - entity: sensor.google_wifi_local_ip
+                name: Local ip
+              - entity: sensor.google_wifi_status
+                name: Google WiFi status
+              - entity: sensor.google_wifi_system_aaaaabmjsje_connected_devices
+                name: Connected devices
+              - entity: sensor.google_wifi_system_aaaaabmjsje_guest_devices
+                name: Connected guest devices
+              - entity: sensor.google_wifi_system_aaaaabmjsje_total_devices
+                name: Connected total devices
+              - entity: binary_sensor.meterkast_access_point  
+              - entity: binary_sensor.woonkamer_access_point
+              - entity: binary_sensor.master_bedroom_access_point
+              - entity: binary_sensor.slaapkamer_kai_access_point
+                show_header_toggle: false
+            type: entities
+        type: vertical-stack
+## SYNOLOGY
+      - cards:
+          - name: Synology
+            styles:
+              card:
+                - text-transform: uppercase
+                - color: 'var(--dwains-theme-accent)'
+                - font-size: 125%
+                - border-radius: 0%
+                - font-weight: 100
+                - letter-spacing: 10px
+            type: 'custom:button-card'
+          - cards:
+            type: 'custom:mini-graph-card'
+            name: Synology server
+            icon: 'mdi:download'
+            entities:
+              - sensor.speedtest_download
+              - sensor.speedtest_upload
+          - entities:
+              - entity: binary_sensor.cloudvdlinden_update_available
+                name: Synology update available
+              - entity: sensor.cloudvdlinden_temperature
+                name: Synology temperature
+              - entity: sensor.cloudvdlinden_drive_1_temperature
+                name: Drive 1 temperature
+              - entity: sensor.cloudvdlinden_volume_1_volume_used
+                name: Drive 1 used
+              - entity: sensor.cloudvdlinden_memory_total_real
+              - entity: sensor.cloudvdlinden_memory_usage_real
+                show_header_toggle: false
+            type: entities
+        type: vertical-stack
+## home assistant
+      - cards:
+          - name: Home assistant
+            styles:
+              card:
+                - text-transform: uppercase
+                - color: 'var(--dwains-theme-accent)'
+                - font-size: 125%
+                - border-radius: 0%
+                - font-weight: 100
+                - letter-spacing: 10px
+            type: 'custom:button-card'
+          - entities:
+              - entity: sensor.hacs
+              - entity: sensor.disk_use_percent_home
+              - entity: sensor.ipv4_address_eth0
+              - entity: sensor.memory_use_percent
+              - entity: sensor.memory_use
+              - entity: sensor.memory_free
+                show_header_toggle: false
+            type: entities
+        type: vertical-stack
+## Printer
+      - cards:
+          - name: Printer
+            styles:
+              card:
+                - text-transform: uppercase
+                - color: 'var(--dwains-theme-accent)'
+                - font-size: 125%
+                - border-radius: 0%
+                - font-weight: 100
+                - letter-spacing: 10px
+            type: 'custom:button-card'
+          - entities:
+              - entity: binary_sensor.hp_printer_connectivity
+              - entity: sensor.hp_envy_photo_6200_series
+                name: Status HP ENVY 6200 series
+                secondary_info: last-updated
+              - entity: sensor.hp_printer_printer
+              - entity: sensor.hp_envy_photo_6200_series
+                name: cloudvdlinden@hpeprint.com
+                icon: 'mdi:email'
+              - entity: sensor.hp_printer_inkcartridge_black
+                name: Status black ink
+                secondary_info: last-updated
+              - entity: sensor.hp_printer_inkcartridge_cyanmagentayellow
+                name: Status tri-color ink
+                secondary_info: last-updated
+            type: entities
+        type: vertical-stack

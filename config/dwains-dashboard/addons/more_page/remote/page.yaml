@@ -1,0 +1,15 @@
+- type: 'custom:lg-remote-control'
+  entity: media_player.tv_woonkamer
+  sources:
+    - icon: 'mdi:netflix'
+      name: Netflix
+    - icon: disney
+      name: Disney
+    - icon: 'mdi:video'
+      name: Videoland
+    - icon: 'mdi:youtube'
+      name: YouTube
+    - name: HDMI 1
+      icon: 'mdi:video-input-hdmi'
+    - name: HDMI 2
+      icon: 'mdi:video-input-hdmi'

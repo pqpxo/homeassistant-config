@@ -1,0 +1,11 @@
+- type: vertical-stack
+  cards:
+    - type: glance
+      entities:
+        - entity: sensor.reistijd_naar_huis
+        - entity: sensor.reistijd_naar_werk
+    - type: iframe
+      url: >-
+        https://embed.waze.com/iframe?zoom=8&lat=52.109879&lon=5.646973&ct=livemap"
+        width="600" height="450" allowfullscreen
+      aspect_ratio: 75%

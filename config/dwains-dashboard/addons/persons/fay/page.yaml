@@ -1,0 +1,10 @@
+- type: entities
+  entities:
+    - entity: sensor.ipad_van_fay_battery_state
+      name: iPad
+      secondary_info: last-updated
+    - entity: sensor.iphone_van_fay_battery_state
+      name: iPhone
+      secondary_info: last-updated
+  show_header_toggle: true
+  state_color: true

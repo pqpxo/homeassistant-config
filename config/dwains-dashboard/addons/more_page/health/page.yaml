@@ -1,0 +1,93 @@
+- type: vertical-stack
+  cards:
+    - type: horizontal-stack
+      cards:
+        - type: gauge
+          entity: sensor.withings_weight_kg_leon
+          min: 0
+          max: 100
+          severity:
+            green: 0
+            yellow: 90
+            red: 95
+        - type: gauge
+          entity: sensor.withings_weight_kg_ellen
+          min: 0
+          max: 100
+          severity:
+            green: 0
+            yellow: 60
+            red: 65
+    - type: horizontal-stack
+      cards:
+        - type: gauge
+          entity: sensor.withings_bone_mass_kg_leon
+          min: 0
+          max: 100
+          severity:
+            green: 3
+            yellow: 2.5
+            red: 0
+        - type: gauge
+          entity: sensor.withings_bone_mass_kg_ellen
+          min: 0
+          max: 100
+          severity:
+            green: 2
+            yellow: 1.75
+            red: 0
+    - type: horizontal-stack
+      cards:
+        - type: gauge
+          entity: sensor.withings_heart_pulse_bpm_leon
+          min: 0
+          max: 100
+          severity:
+            green: 0
+            yellow: 100
+            red: 140
+        - type: gauge
+          entity: sensor.withings_heart_pulse_bpm_ellen
+          min: 0
+          max: 100
+          severity:
+            green: 0
+            yellow: 100
+            red: 140
+    - type: horizontal-stack
+      cards:
+        - type: gauge
+          entity: sensor.withings_fat_mass_kg_leon
+          min: 0
+          max: 100
+          severity:
+            green: 0
+            yellow: 22
+            red: 25
+        - type: gauge
+          entity: sensor.withings_fat_mass_kg_ellen
+          min: 0
+          max: 100
+          severity:
+            green: 0
+            yellow: 22
+            red: 25
+    - type: horizontal-stack
+      cards:
+        - type: gauge
+          entity: sensor.withings_muscle_mass_kg_leon
+          min: 0
+          max: 100
+          severity:
+            green: 65
+            yellow: 50
+            red: 0
+        - type: gauge
+          entity: sensor.withings_muscle_mass_kg_ellen
+          min: 0
+          max: 100
+          severity:
+            green: 41
+            yellow: 35
+            red: 0
+

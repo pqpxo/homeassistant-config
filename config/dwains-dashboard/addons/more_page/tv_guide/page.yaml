@@ -1,0 +1,17 @@
+- type: custom:dwains-flexbox-card
+  items_classes: 'col-xs-12'
+  cards: 
+    - type: custom:dwains-flexbox-card
+      items_classes: 'col-xs-12 col-sm-6 col-sm-6'
+      cards:
+        - type: iframe
+          url: 'https://www.tvgids24.nl/gadget'
+          aspect_ratio: 130%
+          title: TV Gids
+        - type: custom:dwains-flexbox-card
+          items_classes: 'col-xs-12 col-md-12'
+          cards:
+            - type: 'custom:upcoming-media-card'
+              entity: sensor.trakt_upcoming_calendar
+              title: Upcoming Movies/series
+              image_style: fanart

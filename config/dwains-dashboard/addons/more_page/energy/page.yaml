@@ -1,0 +1,145 @@
+- type: vertical-stack
+  cards:
+    - type: 'custom:apexcharts-card'
+      graph_span: 1h
+      cache: true
+      apex_config:
+        plotOptions:
+          bar:
+            columnWidth: 10%
+        legend:
+          showForSingleSeries: false
+        fill:
+          type: solid
+          opacity: 0.2
+        stroke:
+          width: 1
+        chart:
+          height: 250px
+          zoom:
+            enabled: true
+          toolbar:
+            show: false
+            tools:
+              zoom: false
+              zoomin: false
+              zoomout: false
+              pan: false
+              reset: true
+        xaxis:
+          labels:
+            format: 'HH:mm'
+      header:
+        show: true
+        show_states: true
+        colorize_states: true
+      series:
+        - color: 'rgb(138,43,226)'
+          entity: sensor.p1_meter_active_power
+          type: area
+          name: Huidig Stroom Verbruik
+          curve: stepline
+          group_by:
+            func: raw
+            duration: 1m
+    - type: 'custom:apexcharts-card'
+      graph_span: 12h
+      header:
+        show: true
+        title: Verbruik per kwartier (12u)
+      series:
+        - entity: sensor.p1_meter_active_power
+          type: column
+          name: Verbruik per kwartier
+          group_by:
+            func: avg
+            duration: 15m
+          color: '#9400D3'
+      apex_config:
+        stroke:
+          width: 2
+      span:
+        end: hour
+        offset: '-0h'
+    - type: 'custom:apexcharts-card'
+      graph_span: 7d
+      update_interval: 5m
+      cache: true
+      span:
+        end: day
+        offset: '-1sec'
+      header:
+        show: true
+        title: Stroom verbruik per dag
+      apex_config:
+        xaxis:
+          labels:
+            format: dd-MM
+            show: true
+            showAlways: true
+        yaxis:
+          forceNiceScale: false
+          decimalsInFloat: 0
+          min: 0
+        chart:
+          type: area
+          height: 300
+        stroke:
+          show: true
+          width: 1
+        legend:
+          show: true
+        dataLabels:
+          enabled: false
+          distributed: true
+        fill:
+          type: gradient
+          gradient:
+            shadeIntensity: 0.1
+            opacityFrom: 0.25
+            opacityTo: 1
+            inverseColors: true
+            stops:
+              - 0
+              - 90
+              - 100
+      series:
+        - color: 'rgb(138,43,226)'
+          entity: sensor.energy_import_total_dagelijks_kwh
+          type: column
+          name: Stroom
+          float_precision: 2
+          group_by:
+            func: max
+            duration: 23h59m59s
+    - type: 'custom:apexcharts-card'
+      header:
+        show: true
+        title: Kosten maandelijks
+        show_states: true
+        colorize_states: true
+      series:
+        - color: 'rgb(0,183,235)'
+          entity: sensor.energy_import_total_dagelijks_eur
+          data_generator: |
+            // REMOVE ME
+            const now = new Date();
+            const data = [];
+            for(let i = 0; i <= 24; i++) {
+              data.push([now.getTime() - i * 1000 * 60 * 60, Math.floor((Math.random() * 10) + 1)])
+            }
+            return data.reverse();
+        - color: 'rgb(138,43,226)'
+          entity: sensor.energy_import_total_maandelijks_eur
+          type: column
+          data_generator: |
+            // REMOVE ME
+            const now = new Date();
+            const data = [];
+            for(let i = 0; i <= 24; i++) {
+              data.push([now.getTime() - i * 1000 * 60 * 60, Math.floor((Math.random() * 10) + 1)])
+            }
+            return data.reverse();
+
+
+

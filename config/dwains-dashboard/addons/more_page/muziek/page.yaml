@@ -1,0 +1,87 @@
+- type: vertical-stack
+  cards:
+    - hide:
+        power_state: false
+        source: true
+        volume: false
+      icon: 'mdi:google-home'
+      type: 'custom:mini-media-player'
+      artwork: material
+      group: false
+      volume_stateless: false
+      entity: media_player.google_home
+    - type: grid
+      columns: 4
+      square: true
+      cards:
+        - type: 'custom:button-card'
+          show_state: true
+          styles:
+            card:
+              - width: 100px
+              - height: 100px
+          name: Qmusic
+          show_entity_picture: true
+          entity_picture: /local/images/radio/qmusic1.png
+          tap_action:
+            action: call-service
+            service: media_player.play_media
+            service_data:
+              entity_id: media_player.google_home
+              media_content_id: 'https://icecast-qmusicnl-cdp.triple-it.nl/Qmusic_nl_live_96.mp3'
+              media_content_type: music
+        - type: 'custom:button-card'
+          show_entity_picture: true
+          entity_picture: /local/images/radio/538.png
+          show_state: true
+          styles:
+            card:
+              - width: 100px
+              - height: 100px
+          name: 538
+          tap_action:
+            action: call-service
+            service: media_player.play_media
+            service_data:
+              entity_id: media_player.google_home
+              media_content_id: 'https://20073.live.streamtheworld.com/RADIO538.mp3?dist=tunein&DIST=TuneIn&TGT=TuneIn&maxServers=2&gdpr=1&us_privacy=1YNY&gdpr_consent=CPDk6xHPDk6xHAcABBENBSCsAP_AAH_AACiQHnAAAAIEAABAACBhAIgAAAAAAAAAACAQAAAAAAAAABgAAAAAAAAAAAAAACAAAAgAIAAAAAAAAAAABAAAAAAAAADAAAAAAAEAAABAAAAAAAAAAAAAAIAAAAAAAAAQAAAAgAwAPv__7_f_r-3_3_vp9X---_e_V399xLv9cDygAAAECAAAgABAggAQAAAAAAAAAABAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAgAAAAAAAAAAAAAEAAAAAAAAAAAAAAQAAAFooJ5KwBKLvY0whDKLACgUf0VGAiUIIFgAA.YAAAAAAAAAAA&partnertok=eyJhbGciOiJIUzI1NiIsImtpZCI6InR1bmVpbiIsInR5cCI6IkpXVCJ9.eyJ0cnVzdGVkX3BhcnRuZXIiOnRydWUsImlhdCI6MTYxNjYxMzcxNywiaXNzIjoidGlzcnYifQ.0srwqizEobEpo8OdgrL11ua0grb0PkRx5GWNpKRKssM'
+              media_content_type: music
+        - type: 'custom:button-card'
+          show_entity_picture: true
+          entity_picture: /local/images/radio/slamfm.png
+          show_state: true
+          styles:
+            card:
+              - width: 100px
+              - height: 100px
+          name: SlamFM
+          tap_action:
+            action: call-service
+            service: media_player.play_media
+            service_data:
+              entity_id: media_player.google_home
+              media_content_id: 'https://icecast.omroep.nl/3fm-bb-mp3'
+              media_content_type: music
+          show_icon: true
+        - type: 'custom:button-card'
+          show_entity_picture: true
+          entity_picture: /local/images/radio/3fm.png
+          show_state: true
+          styles:
+            card:
+              - width: 100px
+              - height: 100px
+          name: 3FM
+          tap_action:
+            action: call-service
+            service: media_player.play_media
+            service_data:
+              entity_id: mmedia_player.google_home
+              media_content_id: 'https://icecast.omroep.nl/3fm-bb-mp3'
+              media_content_type: music
+    - type: 'custom:mini-media-player'
+      artwork: material
+      volume_stateless: false
+      icon: 'mdi:spotify'
+      entity: media_player.spotify_leon_van_der_linden
+    - type: 'custom:spotify-card'
