@@ -154,13 +154,35 @@ switch_zolder_groep:
   entities:
     - sensor.wasmachine
     
-
 switch_tuin_groep:
   name: Switch Tuin Groep
   entities:
     - switch.overkapping_mss620_heather
     - switch.virtual_tuinslang_ha
+    
+switch_devices_eliza_groep:
+  name: Switch Devices Eliza
+  entities:
+    - switch.ipad_van_eliza
+    - switch.iphonevaneliza
 
+switch_devices_kai_groep:
+  name: Switch Devices Kai
+  entities:
+    - switch.ipad_van_kai
+    - switch.iphone_van_kai
+
+switch_devices_fay_groep:
+  name: Switch Devices Fay
+  entities:
+    - switch.ipad_van_fay
+    - switch.iphone_van_fay
+
+switch_devices_nyk_groep:
+  name: Switch Devices Nyk
+  entities:
+    - switch.ipad_van_nyk_97
+    
 persons:
   name: People
   entities:
@@ -195,23 +217,3 @@ automation_light_groep:
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
