@@ -28,7 +28,7 @@
 
 ### 💻 Gateways
 ---
-[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#menu-devices)
+[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#-menu-devices)
 
 | Icon | Brand | Device |
 |------|:--------------:|:-------:|
@@ -42,7 +42,7 @@
 
 ### 🥵☀🌡️ Climate
 ---
-[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#menu-devices)
+[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#-menu-devices)
 
 | Icon | Brand | Device | Total |
 |------|:--------------:|:-------:|:------:|
@@ -54,7 +54,7 @@
 
 ### 💻📱 Apple devices in HA
 ---
-[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#menu-devices)
+[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#-menu-devices)
 
 | Icon | Brand | Device | Total |
 |------|:--------------:|:-------:|:------:|
@@ -79,7 +79,7 @@
 
 ### 💡Lights in HA
 ---
-[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#menu-devices)
+[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#-menu-devices)
 
 | Icon | Brand | Device | Total |
 |------|:--------------:|:-------:|:------:|
@@ -95,7 +95,7 @@
 
 ### 🚶Motion sensors in HA
 ---
-[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#menu-devices)
+[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#-menu-devices)
 
 | Icon | Brand | Device | Total |
 |------|:--------------:|:-------:|:------:|
@@ -105,7 +105,7 @@
 
 ### 🔌 Electric Plug in HA
 ---
-[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#menu-devices)
+[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#-menu-devices)
 
 | Icon | Brand | Device | Total |
 |------|:--------------:|:-------:|:------:|
@@ -118,7 +118,7 @@
 
 ### 🔘 Switches in HA
 ---
-[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#menu-devices)
+[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#-menu-devices)
 
 | Icon | Brand | Device | Total |
 |------|:--------------:|:-------:|:------:|
@@ -129,7 +129,7 @@
 
 ### 📹 Camera's in HA
 ---
-[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#menu-devices)
+[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#-menu-devices)
 
 | Icon | Brand | Device | Total |
 |------|:--------------:|:-------:|:------:|
@@ -139,7 +139,7 @@
 
 ### 📺 Televisions in HA
 ---
-[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#menu-devices)
+[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#-menu-devices)
 
 | Icon | Brand | Device | Total |
 |------|:--------------:|:-------:|:------:|
@@ -152,7 +152,7 @@
 
 ### 🎮 Game consoles in HA
 ---
-[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#menu-devices)
+[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#-menu-devices)
 
 | Icon | Brand | Device | Total |
 |------|:--------------:|:-------:|:------:|
@@ -161,7 +161,7 @@
 
 ### 🔈 Speakers in HA
 ---
-[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#menu-devices)
+[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#-menu-devices)
 
 | Icon | Brand | Device | Total |
 |------|:--------------:|:-------:|:------:|
@@ -176,7 +176,7 @@
 
 ### 🌸 Perfume diffuser in HA
 ---
-[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#menu-devices)
+[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#-menu-devices)
 
 | Icon | Brand | Device | Total |
 |------|:--------------:|:-------:|:------:|
@@ -185,7 +185,7 @@
 
 ### 👕 Washing machine in HA
 ---
-[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#menu-devices)
+[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#-menu-devices)
 
 | Icon | Brand | Device | Total |
 |------|:--------------:|:-------:|:------:|
@@ -194,7 +194,7 @@
 
 ### ⚡ High voltage in ha
 ---
-[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#menu-devices)
+[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#-menu-devices)
 
 | Icon | Brand | Device | Total |
 |------|:--------------:|:-------:|:------:|
@@ -203,7 +203,7 @@
 
 ### 🖨 Printer in ha
 ---
-[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#menu-devices)
+[🔙 to main](https://github.com/LRvdLinden/homeassistant-config#-menu-devices)
 
 | Icon | Brand | Device | Total |
 |------|:--------------:|:-------:|:------:|
