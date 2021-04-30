@@ -33,7 +33,7 @@
 ---
 | Icon | Brand | Server |
 |------|:--------------:|:-------:|
-| 💻 | Synology | [DS281+](https://www.coolblue.nl/share-product/794570?utm_medium=ios-app&utm_source=referral&utm_campaign=product-share) |
+| 💻 | Synology | [DS218+](https://www.coolblue.nl/share-product/794570?utm_medium=ios-app&utm_source=referral&utm_campaign=product-share) |
 | 💻 | Synology | [Virtual Machine Manager](https://www.synology.com/nl-nl/dsm/feature/virtual_machine_manager) |
 | 💻 | Docker | [Unifi Controller](https://hub.docker.com/r/linuxserver/unifi-controller) |
 
