@@ -24,7 +24,6 @@
   <img src="https://user-images.githubusercontent.com/77990847/116198057-c844f600-a735-11eb-93be-7449617f82e7.jpeg" />
 </p>
 
-[![GitHub Last Commit][last-commit-shield]][commits]
 
 
 ### Status of: 2021.04.29
