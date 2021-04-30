@@ -98,12 +98,12 @@
 ---
 | Icon | Place | Type | Total |
 |------|:-------:|:--------------:|:------:|
-| 🔄 | HA | Automations | 62 |
+| 🔄 | HA | Automations | 65 |
 | 📃 | HA | Scripts | 4 |
-| 📍 | HA | Trackers | 119 | 
+| 📍 | HA | Trackers | 88 | 
 | ⚙ | HA | Binary Sensors | 53 |
-| ⚙ | HA | Sensors | 695 |
-| 🔘 | HA | Switches | 27 |
+| ⚙ | HA | Sensors | 966 |
+| 🔘 | HA | Switches | 34 |
 | 📍 | HA | Zones | 7 | 
 | 🔘 | HA | Booleans | 2 |
 | 🔢 | HA | Numbers | 3 |
